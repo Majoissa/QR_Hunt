@@ -2,15 +2,15 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeScreen from "./Screens/HomeScreen";
+import NewGameScreen from "./Screens/NewGameScreen";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="NewGame">
+        <Stack.Screen name="NewGame" component={NewGameScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
