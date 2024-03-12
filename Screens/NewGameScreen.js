@@ -1,17 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
+import CoverImgSelector from '../Components/CoverImgSelector';
+
+
 
 NewGameScreen = ({ navigation }) => {
+   
 
     return(
         <View style={styles.generalContainer}>
-            <View style={styles.coverImgContainer}>
-                <Text style={styles.lbl}>Imagen de portada (opcional)</Text>
-                <View style={styles.imgContainer}>
-
-                </View>
-
-            </View>
+             <CoverImgSelector/>
             <View style={styles.titleContainer}>
                 <Text style={styles.lbl}>Título (obligatorio)</Text>
                 <View style={styles.title}>
@@ -21,7 +19,7 @@ NewGameScreen = ({ navigation }) => {
             </View>
             <View style={styles.descriptionContainer}>
                 <Text style={styles.lbl}>Descripción</Text>
-                <View style={styles.description}>
+                <View style={styles.container}>
 
                 </View>
 
@@ -52,7 +50,7 @@ lbl: {
     fontSize: 16,
     padding: 10,
 },
-imgContainer: {
+container: {
     width: '100%',
     height: '100%',
     backgroundColor: 'green',
@@ -71,6 +69,9 @@ title: {
     backgroundColor: 'pink',
 },
 descriptionContainer: {
+    backgroundColor: 'red',
+    width: '100%',
+    height: '30%',
 
 },
 description: {
