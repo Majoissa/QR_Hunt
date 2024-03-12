@@ -1,50 +1,107 @@
 import React from "react";
-import { StyleSheet, View, ImageBackground, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
+import { Video } from 'expo-av';
 
 const HomeScreen = () => {
   return (
-    <ImageBackground
-      source={require('../images/Home_Background_Animation00.png')}
-      style={styles.container}
-    >
+    <View style={styles.container}>
+      <Video
+        source={require('../videos/QRHunt.mp4')}
+        style={styles.videoBackground}
+        resizeMode="cover"
+        shouldPlay
+        isLooping
+      />
+      <TouchableOpacity style={styles.settingsButton}>
+        <Image
+          source={require('../images/Button_Settings.png')}
+          style={styles.settingsButtonImage}
+        />
+      </TouchableOpacity>
+      <View style={styles.centerContainer}>
+        <Text style={styles.welcomeText}>Bienvenido a...</Text>
+        <Image
+          source={require('../images/QR_Logo_WithoutVegetation.png')}
+          style={styles.logoImage}
+        />
+        <Text style={styles.descriptionText}>¡Una búsqueda del tesoro interactiva!</Text>
+      </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <ImageBackground
+        <TouchableOpacity style={styles.button} onPress={() => {}}>
+          <Image
             source={require('../images/Btn_Jugar.png')}
             style={styles.buttonBackground}
-          >
-            <Text style={styles.buttonText}>Jugar</Text>
-          </ImageBackground>
+          />
+          <Text style={styles.buttonText}>Jugar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <ImageBackground
+        <TouchableOpacity style={styles.button} onPress={() => {}}>
+          <Image
             source={require('../images/Btn_CrearPartida.png')}
             style={styles.buttonBackground}
-          >
-            <Text style={styles.buttonText}>Crear Partida</Text>
-          </ImageBackground>
+          />
+          <Text style={styles.buttonText}>Crear Partida</Text>
         </TouchableOpacity>
       </View>
-    </ImageBackground>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  videoBackground: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  settingsButton: {
+    position: 'absolute',
+    top: -5,
+    right: -5,
+    width: 100,
+    height: 100,
+    zIndex: 1,
+  },
+  settingsButtonImage: {
+    width: '100%',
+    height: '100%',
+  },
+  centerContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 200,
+    marginBottom: -140,
+  },
+  logoImage: {
+    width: 350,
+    height: 350,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    marginTop : 60,
+  },
+  descriptionText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginTop: -90,
+    marginBottom: 150,
   },
   buttonContainer: {
-    marginTop: 380, 
+    alignItems: 'center',
+    marginBottom: 100,
   },
   button: {
-    width: 200, 
-    height: 60, 
-    borderRadius: 15, 
+    width: 250, 
+    height: 70, 
+    borderRadius: 75, 
     overflow: 'hidden',
-    marginBottom: 20, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
   },
   buttonBackground: {
     width: '100%',
@@ -56,6 +113,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24, 
     fontWeight: 'bold',
+    position: 'absolute',
   },
 });
 
