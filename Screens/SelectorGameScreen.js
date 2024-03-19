@@ -8,7 +8,7 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import GameComponent from "../Components/GameComponent";
+import GameComponentContainer from "../Components/GameComponentContainer";
 
 const image = require("../images/Home_Background_Animation00.png");
 const leaves = require("../images/FlorsButton.png");
@@ -20,17 +20,14 @@ const SelectorGameScreen = () => {
         source={image}
         resizeMode="cover"
         style={styles.image}
-        imageStyle={{ opacity: 0.5 }}
+        imageStyle={{ opacity: 0.7 }}
       >
-        <ScrollView>
-          <GameComponent />
-          <GameComponent />
-          <GameComponent />
-          <GameComponent />
-        </ScrollView>
+        <GameComponentContainer />
       </ImageBackground>
-      <Image source={leaves} style={styles.leaves} />
-      <Image source={leavesRight} style={styles.leaves} />
+      <View pointerEvents="none">
+        <Image source={leaves} style={styles.leaves} />
+        <Image source={leavesRight} style={styles.leaves2} />
+      </View>
     </View>
   );
 };
@@ -41,11 +38,19 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "center",
+    backgroundColor: "black",
   },
   container: {
     flex: 1,
   },
   leaves: {
+    width: widthScreen,
+    height: 300,
+    margin: "auto",
+    position: "absolute",
+    bottom: 0,
+  },
+  leaves2: {
     width: widthScreen,
     height: widthScreen,
     margin: "auto",

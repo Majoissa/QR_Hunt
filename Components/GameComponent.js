@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import { Dimensions } from "react-native";
 
 const tesoro = require("../images/Extra_Image.png");
 
 const GameComponent = () => {
+  const [isOneUser, setIsOneUser] = useState(true);
   return (
     <View style={styles.container}>
       <Image source={tesoro} style={styles.image} />
@@ -14,6 +15,17 @@ const GameComponent = () => {
           Parece que alguien ha escondido un valioso tesoro en algun lugar de
           este jardín...
         </Text>
+        {isOneUser ? (
+          <Image
+            style={styles.img}
+            source={require("../images/Jugador1.png")}
+          />
+        ) : (
+          <Image
+            style={styles.img}
+            source={require("../images/Jugador2.png")}
+          />
+        )}
       </View>
     </View>
   );
@@ -46,7 +58,14 @@ const styles = StyleSheet.create({
     color: "white",
     marginStart: 15,
     fontWeight: "bold",
-    width: windowWith * 0.5,
+    width: windowWith * 0.4,
+  },
+  img: {
+    width: 30,
+    height: 15,
+    position: "absolute",
+    bottom: 5,
+    right: 5,
   },
 });
 export default GameComponent;

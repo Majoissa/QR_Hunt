@@ -1,8 +1,10 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 import { Video } from "expo-av";
+import { useNavigation } from "@react-navigation/core";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Video
@@ -29,7 +31,10 @@ const HomeScreen = () => {
         </Text>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("MyGames")}
+        >
           <Image
             source={require("../images/Btn_Jugar.png")}
             style={styles.buttonBackground}

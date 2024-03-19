@@ -15,7 +15,7 @@ export default function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Mis Partidas" component={SelectorGameScreen} />
+        <Stack.Screen name="MyGames" component={SelectorGameScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
