@@ -10,7 +10,7 @@ NewGameScreen = ({ navigation }) => {
         source={require('../images/Home_Background_Animation00.png')}
         style={styles.backgroundImage}
     >
-            <View style={styles.overlay}>
+            <View style={styles.generalContainer}>
                 <CoverImgSelector/>
                 <View style={styles.titleContainer}>
                     <Text style={styles.lbl}>Título (obligatorio)</Text>
@@ -44,22 +44,17 @@ generalContainer: {
     alignItems: 'center',
     paddingLeft: 20,
     paddingRight: 20,
+    ...StyleSheet.absoluteFillObject, // Ocupa todo el espacio disponible
+    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Color oscuro con opacidad
    // paddingTop: 20,
 },
 backgroundImage: {
     flex: 1, // Ocupa todo el espacio disponible
     resizeMode: 'cover', // Ajusta la imagen al tamaño del contenedor
     justifyContent: 'center', // Centra el contenido verticalmente
-    alignItems: 'center', // Centra el contenido horizontalmente
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
-  
+    alignItems: 'center', // Centra el contenido horizontalmente  
 },
-overlay: {
-    ...StyleSheet.absoluteFillObject, // Ocupa todo el espacio disponible
-    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Color oscuro con opacidad
-},
+
 coverImgContainer: {
     width: '100%',
     height: '25%',
@@ -80,29 +75,21 @@ container: {
 titleContainer: {
     marginTop: '12%',
     width: '100%',
-    height: '10%',
-   // backgroundColor: 'yellow',
 },
 title: {
     width: '100%',
-    //height: '50%',
     borderRadius: 30,
     backgroundColor: 'grey',
     padding: 10,
-},
+   },
 descriptionContainer: {
-  //  backgroundColor: 'red',
-    marginTop: '3%',
     width: '100%',
     height: '30%',
-
 },
 description: {
     padding: 10,
     width: '100%',
     height: '100%',
-    
-
 },
 
 });
