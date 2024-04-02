@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import { Dimensions } from "react-native";
 
 const tesoro = require("../images/Extra_Image.png");
 
-const GameComponent = () => {
-  const [isOneUser, setIsOneUser] = useState(true);
+const GameComponent = ({ isOneUser }) => {
   return (
     <View style={styles.container}>
       <Image source={tesoro} style={styles.image} />
@@ -16,15 +15,21 @@ const GameComponent = () => {
           este jardín...
         </Text>
         {isOneUser ? (
-          <Image
-            style={styles.img}
-            source={require("../images/Jugador1.png")}
-          />
+          <View style={styles.vision}>
+            <Image
+              style={styles.img}
+              source={require("../images/Jugador1.png")}
+            />
+            <Text style={styles.p}>Solo yo</Text>
+          </View>
         ) : (
-          <Image
-            style={styles.img}
-            source={require("../images/Jugador2.png")}
-          />
+          <View style={styles.vision}>
+            <Image
+              style={styles.img2}
+              source={require("../images/Jugador2.png")}
+            />
+            <Text style={styles.p}>Público</Text>
+          </View>
         )}
       </View>
     </View>
@@ -60,12 +65,29 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     width: windowWith * 0.4,
   },
+
+  vision: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginTop: 10,
+    marginStart: 85,
+  },
+  p: {
+    color: "white",
+    marginStart: 5,
+    fontWeight: "bold",
+    fontSize: 15,
+    width: windowWith * 0.4,
+  },
   img: {
-    width: 30,
+    width: 35,
     height: 15,
-    position: "absolute",
-    bottom: 5,
-    right: 5,
+    right: -17,
+  },
+  img2: {
+    width: 35,
+    height: 15,
   },
 });
 export default GameComponent;
