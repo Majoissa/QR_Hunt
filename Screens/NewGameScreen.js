@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, ImageBackground } from 'react-native';
 import CoverImgSelector from '../Components/CoverImgSelector';
+import Navbar from '../Components/Navbar';
 
 
 
@@ -9,8 +10,11 @@ NewGameScreen = ({ navigation }) => {
         <ImageBackground
         source={require('../images/Home_Background_Animation00.png')}
         style={styles.backgroundImage}
-    >
-            <View style={styles.generalContainer}>
+    >  
+
+        <View style={styles.generalContainer}>
+            <Navbar title="Crear Partida" />
+
                 <CoverImgSelector/>
                 <View style={styles.titleContainer}>
                     <Text style={styles.lbl}>Título (obligatorio)</Text>
