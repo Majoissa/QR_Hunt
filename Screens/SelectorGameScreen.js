@@ -22,7 +22,7 @@ const SelectorGameScreen = () => {
         style={styles.image}
         imageStyle={{ opacity: 0.7 }}
       >
-        <GameComponentContainer />
+        <GameComponentContainer noGames={true} />
       </ImageBackground>
       <View pointerEvents="none">
         <Image source={leaves} style={styles.leaves} />
