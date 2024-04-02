@@ -8,7 +8,7 @@ export const insertPartida = async (title, image, description) => {
   const values = [title, image, description];
 
   try {
-    await new Promise((resolve, reject) => {
+    const partidaId = await new Promise((resolve, reject) => {
       db.transaction(
         (tx) => {
           tx.executeSql(
@@ -32,15 +32,15 @@ export const insertPartida = async (title, image, description) => {
         async () => {
           // Agregar un pequeño retraso entre las transacciones para evitar conflictos
           await new Promise(resolve => setTimeout(resolve, 100));
-          resolve();
         }
       );
     });
+
+    return partidaId; // Devolver el ID de la partida creada
   } catch (error) {
     console.error('Error al insertar la partida:', error);
     throw error;
   }
-
 };
 
 
@@ -81,18 +81,44 @@ export const insertPista = (type, image, title, description, audio, geolocalizac
 };
 
 export const dropTables = () => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql('DELETE FROM Partidas', [], (_, result) => {
+          console.log('All data from table Partidas deleted successfully');
+        });
+        tx.executeSql('DELETE FROM Pistas', [], (_, result) => {
+          console.log('All data from table Pistas deleted successfully');
+        });
+      },
+      (_, error) => reject(error),
+      (_, success) => resolve(success)
+    );
+  });
+};
+
+
+  export const getAllPistas = (partidaId) => {
     return new Promise((resolve, reject) => {
       db.transaction(
         (tx) => {
-          tx.executeSql('DROP TABLE IF EXISTS Partidas', [], (_, result) => {
-            console.log('Table Partidas dropped successfully');
-          });
-          tx.executeSql('DROP TABLE IF EXISTS Pistas', [], (_, result) => {
-            console.log('Table Pistas dropped successfully');
-          });
+          tx.executeSql(
+            'SELECT * FROM Pistas WHERE Id_partida = ?',
+            [partidaId],
+            (_, result) => {
+              const pistas = result.rows._array;
+              resolve(pistas);
+            },
+            (_, error) => {
+              console.error('Error al obtener las pistas:', error);
+              reject(error);
+            }
+          );
         },
-        (_, error) => reject(error),
-        (_, success) => resolve(success)
+        (_, error) => {
+          console.error('Error al iniciar la transacción:', error);
+          reject(error);
+        }
       );
     });
   };
