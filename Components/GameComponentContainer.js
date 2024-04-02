@@ -28,10 +28,10 @@ const GameComponentContainer = () => {
         </View>
       </View>
       <ScrollView style={styles.container}>
-        <GameComponent />
-        <GameComponent />
-        <GameComponent />
-        <GameComponent />
+        <GameComponent isOneUser={true} />
+        <GameComponent isOneUser={false} />
+        <GameComponent isOneUser={true} />
+        <GameComponent isOneUser={false} />
       </ScrollView>
     </View>
   );
