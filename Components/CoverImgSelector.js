@@ -104,8 +104,10 @@ const styles = StyleSheet.create({
        // backgroundColor: 'red',
     },
     lbl: {
-        fontSize: 16,
+        fontSize: 18,
         padding: 10,
+        color: 'white',
+        fontWeight: 'bold',
     },
     container: {
         width: '100%',
