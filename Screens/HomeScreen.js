@@ -41,7 +41,7 @@ const HomeScreen = () => {
           />
           <Text style={styles.buttonText}>Jugar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Overlay")}>
           <Image
             source={require("../images/Btn_CrearPartida.png")}
             style={styles.buttonBackground}
