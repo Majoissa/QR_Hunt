@@ -1,26 +1,27 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import CoverImgSelector from '../Components/CoverImgSelector';
 
 
 
 NewGameScreen = ({ navigation }) => {
-   
-
     return(
         <View style={styles.generalContainer}>
              <CoverImgSelector/>
-            <View style={styles.titleContainer}>
+             <View style={styles.titleContainer}>
                 <Text style={styles.lbl}>Título (obligatorio)</Text>
-                <View style={styles.title}>
-
-                </View>
-
+                <TextInput
+                    style={styles.title} // Estilo para el campo de entrada
+                    placeholder="Ingresa un título único que no se repita"
+                />
             </View>
             <View style={styles.descriptionContainer}>
                 <Text style={styles.lbl}>Descripción</Text>
                 <View style={styles.container}>
-
+                    <TextInput
+                    style={styles.description}
+                                  
+                />
                 </View>
 
             </View>
@@ -44,7 +45,7 @@ generalContainer: {
 coverImgContainer: {
     width: '100%',
     height: '25%',
-    backgroundColor: 'red',
+   // backgroundColor: 'red',
 },
 lbl: {
     fontSize: 16,
@@ -53,28 +54,30 @@ lbl: {
 container: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'green',
+    backgroundColor: 'grey',
     borderRadius: 20,
 },
 titleContainer: {
     marginTop: '15%',
     width: '100%',
     height: '15%',
-    backgroundColor: 'yellow',
+   // backgroundColor: 'yellow',
 },
 title: {
     width: '100%',
     height: '50%',
     borderRadius: 30,
-    backgroundColor: 'pink',
+    backgroundColor: 'grey',
+    padding: 10,
 },
 descriptionContainer: {
-    backgroundColor: 'red',
+  //  backgroundColor: 'red',
     width: '100%',
     height: '30%',
 
 },
 description: {
+    padding: 10,
 
 },
 
