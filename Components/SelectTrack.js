@@ -1,21 +1,23 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import CodeOverlay from './CodeOverlay';
 
 const CustomComponent = () => {
   return (
     <View style={styles.container}>
+      {/*<CodeOverlay />*/}
       <Text style={styles.titleText}>Añadir pista de</Text>
       <View style={styles.gridContainer}>
         <View style={styles.rowContainer}>
           <TouchableOpacity style={styles.button}>
             <Image source={require('../images/Image_Button.png')} style={styles.backgroundImage} />
-            <Image source={require('../images/Image_Icon.png')} style={styles.centeredForegroundImage} />
+            <Image source={require('../images/Image_Icon.png')} style={styles.centeredForegroundImage} resizeMode="contain" />
             <Text style={styles.labelText}>Imagen</Text>
           </TouchableOpacity>
           <View style={styles.separator} />
           <TouchableOpacity style={styles.button}>
             <Image source={require('../images/Text_Button.png')} style={styles.backgroundImage} />
-            <Image source={require('../images/icon_text.png')} style={styles.centeredForegroundImage} />
+            <Image source={require('../images/icon_text.png')} style={styles.centeredForegroundImage} resizeMode="contain" />
             <Text style={styles.labelText}>Texto</Text>
           </TouchableOpacity>
         </View>
@@ -23,13 +25,13 @@ const CustomComponent = () => {
         <View style={styles.rowContainer}>
           <TouchableOpacity style={styles.button}>
             <Image source={require('../images/Mic_Button.png')} style={styles.backgroundImage} />
-            <Image source={require('../images/icon_audio.png')} style={styles.centeredForegroundImage} />
+            <Image source={require('../images/icon_audio.png')} style={styles.centeredForegroundImage} resizeMode="contain" />
             <Text style={styles.labelText}>Audio</Text>
           </TouchableOpacity>
           <View style={styles.separator} />
           <TouchableOpacity style={styles.button}>
             <Image source={require('../images/Geo_Button.png')} style={styles.backgroundImage} />
-            <Image source={require('../images/icon_geo.png')} style={styles.centeredForegroundImage} />
+            <Image source={require('../images/icon_geo.png')} style={styles.centeredForegroundImage} resizeMode="contain" />
             <Text style={styles.labelText}>Geolocalizacion</Text>
           </TouchableOpacity>
         </View>
