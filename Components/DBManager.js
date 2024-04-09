@@ -80,6 +80,30 @@ export const insertPista = (type, image, title, description, audio, geolocalizac
   });
 };
 
+export const deletePartida = (partidaId) => {
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          'DELETE FROM Partidas WHERE Id_partida = ?',
+          [partidaId],
+          (_, result) => {
+            console.log('Partida eliminada con éxito');
+            resolve(result);
+          },
+          (_, error) => {
+            console.error('Error al eliminar la partida:', error);
+            reject(error);
+          }
+        );
+      },
+      null,
+      null
+    );
+  });
+};
+
+
 export const dropTables = () => {
   return new Promise((resolve, reject) => {
     db.transaction(
@@ -148,6 +172,49 @@ export const dropTables = () => {
       );
     });
   };
+  export const insertOrUpdatePartida = async (id, title, image, description) => {
+    // Verifica si el ID existe para determinar si se trata de una inserción o una actualización
+    if (id) {
+      const sqlStatement = 'UPDATE Partidas SET Title = ?, Image = ?, Description = ? WHERE Id_partida = ?';
+      const values = [title, image, description, id];
+  
+      try {
+        await new Promise((resolve, reject) => {
+          db.transaction(
+            (tx) => {
+              tx.executeSql(
+                sqlStatement,
+                values,
+                (_, result) => {
+                  console.log(`Partida actualizada con ID: ${id}`);
+                  resolve();
+                },
+                (_, error) => {
+                  console.error('Error al actualizar la partida:', error);
+                  reject(error);
+                }
+              );
+            },
+            (_, error) => {
+              console.error('Error al iniciar la transacción:', error);
+              reject(error);
+            },
+            async () => {
+              // Agregar un pequeño retraso entre las transacciones para evitar conflictos
+              await new Promise(resolve => setTimeout(resolve, 100));
+            }
+          );
+        });
+      } catch (error) {
+        console.error('Error al actualizar la partida:', error);
+        throw error;
+      }
+    } else {
+      // Si no se proporciona un ID, se trata de una inserción
+      return insertPartida(title, image, description);
+    }
+  };
+  
   
   
   

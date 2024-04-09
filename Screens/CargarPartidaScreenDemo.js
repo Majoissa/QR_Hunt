@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { getAllPartidas, getAllPistas } from '../Components/DBManager';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { getAllPartidas, deletePartida } from '../Components/DBManager';
+import { useNavigation } from '@react-navigation/native'; // Importa el hook de navegación
 
 const CargarPartidaScreenDemo = () => {
   const [partidas, setPartidas] = useState([]);
+  const navigation = useNavigation(); // Obtiene el objeto de navegación
 
   useEffect(() => {
     cargarPartidas();
@@ -12,40 +14,39 @@ const CargarPartidaScreenDemo = () => {
   const cargarPartidas = async () => {
     try {
       const partidasDB = await getAllPartidas();
-      const partidasConPistas = await Promise.all(
-        partidasDB.map(async (partida) => {
-          const pistas = await getAllPistas(partida.Id_partida);
-          return { ...partida, pistas };
-        })
-      );
-      setPartidas(partidasConPistas);
+      setPartidas(partidasDB);
     } catch (error) {
       console.error('Error al cargar las partidas:', error);
     }
   };
 
+  const handleEliminarPartida = async (idPartida) => {
+    try {
+      await deletePartida(idPartida);
+      cargarPartidas();
+      Alert.alert('Partida eliminada con éxito');
+    } catch (error) {
+      console.error('Error al eliminar la partida:', error);
+      Alert.alert('Error al eliminar la partida');
+    }
+  };
+
+  const handleEditarPartida = (partida) => {
+    // Navega a la pantalla de edición y pasa los detalles de la partida como parámetro
+    navigation.navigate('EditarPartida', { partida });
+  };
+
   const renderPartidaItem = ({ item }) => (
     <View style={styles.partidaItem}>
-      <Text>ID:</Text>
-      <Text style={styles.partidaTitle}>{item.Id_partida}</Text>
-      <Text>Title:</Text>
       <Text style={styles.partidaTitle}>{item.Title}</Text>
-      <Text>Description:</Text>
-      <Text style={styles.partidaDescription}>{item.Description}</Text>
-      <Text>Image:</Text>
-      <Text style={styles.partidaDescription}>{item.Image}</Text>
-      <Text>Pistas:</Text>
-      {item.pistas.map((pista) => (
-        <View key={pista.Id_pista} style={styles.pistaItem}>
-          <Text style={styles.pistaTitle}>{pista.Title}</Text>
-          <Text style={styles.pistaDescription}>{pista.Description}</Text>
-          <Text style={styles.pistaDetails}>Type: {pista.Type}</Text>
-          <Text style={styles.pistaDetails}>Image: {pista.Image}</Text>
-          <Text style={styles.pistaDetails}>Audio: {pista.Audio}</Text>
-          <Text style={styles.pistaDetails}>Geolocalizacion: {pista.geolocalizacion}</Text>
-          <Text style={styles.pistaDetails}>Solution: {pista.solution}</Text>
-        </View>
-      ))}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={[styles.button, styles.editButton]} onPress={() => handleEditarPartida(item)}>
+          <Text style={styles.buttonText}>Editar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, styles.deleteButton]} onPress={() => handleEliminarPartida(item.Id_partida)}>
+          <Text style={styles.buttonText}>Eliminar</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -75,31 +76,31 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#CCCCCC',
     marginBottom: 10,
+    paddingBottom: 10,
   },
   partidaTitle: {
     fontSize: 16,
     fontWeight: 'bold',
   },
-  partidaDescription: {
-    fontSize: 14,
-    color: '#666666',
-  },
-  pistaItem: {
-    marginLeft: 20,
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 5,
   },
-  pistaTitle: {
-    fontSize: 14,
+  button: {
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+  },
+  editButton: {
+    backgroundColor: '#4CAF50', // Color verde para editar
+  },
+  deleteButton: {
+    backgroundColor: '#FF5733', // Color rojo para eliminar
+  },
+  buttonText: {
+    color: 'white',
     fontWeight: 'bold',
-  },
-  pistaDescription: {
-    fontSize: 12,
-    color: '#999999',
-  },
-  pistaDetails: {
-    fontSize: 12,
-    color: '#999999',
-    marginLeft: 10,
   },
 });
 
