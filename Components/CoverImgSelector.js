@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     coverImgContainer: {
         width: '100%',
       //  height: '35%',
-        marginTop: '40%',
+        marginTop: '20%',
        // backgroundColor: 'red',
     },
     lbl: {
@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         paddingTop: 80,
         paddingBottom: 80,
+        bottom: 10
     },
 })
 
