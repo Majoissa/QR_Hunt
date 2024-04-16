@@ -2,6 +2,7 @@ import React from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 import { Video } from "expo-av";
 import { useNavigation } from "@react-navigation/core";
+import AddClue from "../Components/AddClue";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -41,7 +42,10 @@ const HomeScreen = () => {
           />
           <Text style={styles.buttonText}>Jugar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Overlay")}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Overlay")}
+        >
           <Image
             source={require("../images/Btn_CrearPartida.png")}
             style={styles.buttonBackground}
