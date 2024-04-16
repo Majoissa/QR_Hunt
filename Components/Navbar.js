@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
         paddingTop: 47,
         top: 0,
         width: screenWidth,
+        zIndex: 99999
     },
     text: {
         color: "#ffb708",
