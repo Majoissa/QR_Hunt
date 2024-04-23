@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 40,
+    paddingVertical: 30,
   },
   gridContainer: {
     justifyContent: "center",
@@ -91,11 +91,11 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginBottom: 10,
+   // marginBottom: 5,
   },
   button: {
-    width: 150,
-    height: 120,
+    width: 160,
+    height: 130,
     alignItems: "center",
     justifyContent: "center",
    // borderRadius: 10,
@@ -109,14 +109,13 @@ const styles = StyleSheet.create({
     height: "80%",
   },
   centeredForegroundImage: {
-    marginTop: 20,
     width: "30%",
     height: "30%",
 
   },
   labelText: {
     marginTop: 10,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: "bold",
     color: "white",
     textAlign: "center",
@@ -125,7 +124,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 5,
   },
 });
 
