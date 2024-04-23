@@ -100,24 +100,20 @@ const CoverImgSelector = () => {
 const styles = StyleSheet.create({
     coverImgContainer: {
         width: '100%',
-      //  height: '35%',
-        marginTop: '20%',
-       // backgroundColor: 'red',
     },
     lbl: {
         fontSize: 18,
-        padding: 10,
         color: 'white',
         fontWeight: 'bold',
+        paddingBottom: 15,
     },
     container: {
         width: '100%',
-      //  height: '80%',
         backgroundColor: 'grey',
         borderRadius: 20,
         overflow: 'hidden',
-        paddingTop: 80,
-        paddingBottom: 80,
+        paddingTop: 60,
+        paddingBottom: 60,
         bottom: 10
     },
 })

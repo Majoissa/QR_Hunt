@@ -6,22 +6,21 @@ import Navbar from '../Components/Navbar';
 import TextIcon from '../images/Text_Icon.png';
 import MicIcon from '../images/Mic_Icon.png';
 import ImageIcon from '../images/Image_Icon.png';
-
+import AddClue from '../Components/AddClue';
+import { Zocial } from '@expo/vector-icons';
 
 NewGameScreen = ({ navigation }) => {
     return(
-       
-                <ImageBackground
-                    source={require('../images/Home_Background_Animation00.png')}
-                    style={styles.backgroundImage}
-                >
-                    {/* Capa oscurecedora */}
-                    <View style={styles.overlay} />
-                    
-                    <Navbar title="Crear Partida" />
-                    <View>
- {/* Contenido adicional aquí si es necesario */}
-                    <ScrollView style={{width: '100%'}}>
+        <ImageBackground
+            source={require('../images/Home_Background_Animation00.png')}
+            style={styles.backgroundImage}
+            >
+            {/* Capa oscurecedora */}
+            <View style={styles.overlay} />            
+            <Navbar title="Crear Partida" />
+            {/* Contenido adicional aquí si es necesario */}
+            <ScrollView style={{width: '100%', paddingTop: 80, paddingBottom: 80}}>
+                <View style={{padding: 20, paddingBottom: 80}}>
                     <CoverImgSelector/>
                     <View style={styles.titleContainer}>
                         <Text style={styles.label}>Título (obligatorio)</Text>
@@ -39,43 +38,45 @@ NewGameScreen = ({ navigation }) => {
                             placeholder="Escribe aquí la descripción del juego"
                         />
                     </View>
-                   <View style={styles.row}>
-                        <View style={{backgroundColor: '#d78e37', padding: 8, borderTopLeftRadius: 5, borderBottomLeftRadius: 5}}>
-                            <Image source={TextIcon}
-                             style={styles.icon}
-                             resizeMode="contain"/>
+                    <View style={{ bottom: 20}}>
+                        <Text style={styles.label}>Pistas</Text>
+                        <View style={styles.row}>
+                            <View style={{backgroundColor: '#d78e37', padding: 8, borderTopLeftRadius: 5, borderBottomLeftRadius: 5}}>
+                                <Image source={TextIcon}
+                                style={styles.icon}
+                                resizeMode="contain"/>
+                            </View>
+                            <View style={{backgroundColor: '#d78e37', flex: 1, marginLeft: 5, padding: 8, alignItems: 'center', justifyContent: 'center',  borderRadius: 5}}>
+                                <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16, alignSelf: 'flex-start', marginStart: 7}}>Pista de texto...</Text>
+                            </View>
                         </View>
-                        <View style={{backgroundColor: '#d78e37', flex: 1, marginLeft: 5, padding: 8, alignItems: 'center', justifyContent: 'center',  borderRadius: 5}}>
-                            <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16, alignSelf: 'flex-start', marginStart: 7}}>Pista de texto...</Text>
+                        <View style={styles.row}>
+                                <View style={{backgroundColor: '#6b7695', padding: 8, borderTopLeftRadius: 8, borderBottomLeftRadius: 5}}>
+                                    <Image source={MicIcon}
+                                    style={styles.icon}
+                                    resizeMode="contain"/>
+                                </View>
+                                <View style={{backgroundColor: '#6b7695', flex: 1, marginLeft: 5, padding: 8, alignItems: 'center', justifyContent: 'center',  borderRadius: 5}}>
+                                    <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16, alignSelf: 'flex-start', marginStart: 7}}>Pista de audio...</Text>
+                                </View>
                         </View>
-                   </View>
-                   <View style={styles.row}>
-                        <View style={{backgroundColor: '#6b7695', padding: 8, borderTopLeftRadius: 8, borderBottomLeftRadius: 5}}>
-                            <Image source={MicIcon}
-                             style={styles.icon}
-                             resizeMode="contain"/>
+                        <View style={styles.row}>
+                                <View style={{backgroundColor: '#609872', padding: 8, borderTopLeftRadius: 5, borderBottomLeftRadius: 5}}>
+                                    <Image source={ImageIcon}
+                                    style={styles.icon}
+                                    resizeMode="contain"/>
+                                </View>
+                                <View style={{backgroundColor: '#609872', flex: 1, marginLeft: 5, padding: 5, alignItems: 'center', justifyContent: 'center',  borderRadius: 5}}>
+                                    <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16, alignSelf: 'flex-start', marginStart: 7}}>Pista de imagen...</Text>
+                                </View>
                         </View>
-                        <View style={{backgroundColor: '#6b7695', flex: 1, marginLeft: 5, padding: 8, alignItems: 'center', justifyContent: 'center',  borderRadius: 5}}>
-                            <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16, alignSelf: 'flex-start', marginStart: 7}}>Pista de audio...</Text>
-                        </View>
-                   </View>
-                   <View style={styles.row}>
-                        <View style={{backgroundColor: '#609872', padding: 8, borderTopLeftRadius: 5, borderBottomLeftRadius: 5}}>
-                            <Image source={ImageIcon}
-                             style={styles.icon}
-                             resizeMode="contain"/>
-                        </View>
-                        <View style={{backgroundColor: '#609872', flex: 1, marginLeft: 5, padding: 5, alignItems: 'center', justifyContent: 'center',  borderRadius: 5}}>
-                            <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16, alignSelf: 'flex-start', marginStart: 7}}>Pista de imagen...</Text>
-                        </View>
-                   </View>
-                                   
-                    </ScrollView>
-
+               
                     </View>
-                    
-                   
-                </ImageBackground>
+                </View>
+            </ScrollView>
+            <AddClue/>
+           {/*<AddClue/>*/} 
+            </ImageBackground>
             );
         }
         
@@ -85,14 +86,14 @@ backgroundImage: {
     resizeMode: 'cover',
     justifyContent: 'center',
     //alignItems: 'center',
-    padding: 20,
+    //padding: 20,
             },
 overlay: {
     ...StyleSheet.absoluteFillObject, // Ocupa todo el espacio del padre
     backgroundColor: 'black', // Color de la capa
-    opacity: 0.5, // Ajusta la transparencia aquí
+    opacity: 0.8, // Ajusta la transparencia aquí
             },
-            // otros estilos...
+            
 lbl: {
     fontSize: 18,
     padding: 10,
@@ -125,10 +126,10 @@ inputDescription: {
     borderWidth: 1,
     borderColor: 'gray',
     borderRadius: 15,
-    paddingTop: 40,
+    paddingTop: 30,
     padding: 10,
-    paddingBottom: 40,
-    marginBottom: 20,
+    paddingBottom: 30,
+    marginBottom: 30,
     textAlignVertical: 'top', // Alinea el texto en la parte superior para campos de texto multilínea
     minHeight: 100, // Altura mínima para dar espacio suficiente para escribir
 },row: {
@@ -145,39 +146,3 @@ icon: {
 });
 
 export default NewGameScreen;
-
-
-
- {/*  
- 
- 
-    <ImageBackground
-                source={require('../images/Home_Background_Animation00.png')}
-                style={styles.backgroundImage}
-            >
-            <Navbar title="Crear Partida" />
-            </ImageBackground>
- 
- 
- <View style={styles.generalContainer}>
-            <Navbar title="Crear Partida" />
-                <ScrollView style={{backgroundColor: 'blue', zIndex: -222, width: '100%', marginBottom: '35%', height: '60%'}}>
-                    <CoverImgSelector/>
-                    <View style={styles.titleContainer}>
-                           <Text style={styles.lbl}>Título (obligatorio)</Text>
-                           <TextInput
-                                style={styles.title} // Estilo para el campo de entrada
-                                placeholder="Ingresa un título único que no se repita"
-                            />
-                    </View>
-                    <View style={styles.descriptionContainer}>
-                           <Text style={styles.lbl}>Descripción</Text>
-                           <View style={styles.container}>
-                                <TextInput style={styles.description} />
-                           </View>
-                    </View>
-                </ScrollView>
-            
-
-           
-        </View>*/}
