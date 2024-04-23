@@ -67,7 +67,7 @@ const AddClue = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 120,
+    height: 100,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

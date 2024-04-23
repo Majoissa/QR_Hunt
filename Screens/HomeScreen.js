@@ -44,7 +44,7 @@ const HomeScreen = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Overlay")}
+          onPress={() => navigation.navigate("NewGame")}
         >
           <Image
             source={require("../images/Btn_CrearPartida.png")}
