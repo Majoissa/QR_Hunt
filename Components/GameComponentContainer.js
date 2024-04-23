@@ -9,9 +9,10 @@ import {
   Image,
 } from "react-native";
 import GameComponent from "./GameComponent";
+import NoGameComponent from "./NoGameComponent";
 import { useNavigation } from "@react-navigation/core";
 
-const GameComponentContainer = () => {
+const GameComponentContainer = ({ noGames }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.outerContainer}>
@@ -28,10 +29,16 @@ const GameComponentContainer = () => {
         </View>
       </View>
       <ScrollView style={styles.container}>
-        <GameComponent isOneUser={true} />
-        <GameComponent isOneUser={false} />
-        <GameComponent isOneUser={true} />
-        <GameComponent isOneUser={false} />
+        {noGames ? (
+          <NoGameComponent />
+        ) : (
+          <>
+            <GameComponent isOneUser={true} />
+            <GameComponent isOneUser={false} />
+            <GameComponent isOneUser={true} />
+            <GameComponent isOneUser={false} />
+          </>
+        )}
       </ScrollView>
     </View>
   );
