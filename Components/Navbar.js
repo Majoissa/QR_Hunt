@@ -25,8 +25,12 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         position: "absolute",
         paddingTop: 47,
+        marginBottom: 20,
         top: 0,
+        left: 0,
+        right: 0,
         width: screenWidth,
+        zIndex: 99999
     },
     text: {
         color: "#ffb708",

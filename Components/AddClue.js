@@ -72,9 +72,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 25,
-    borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     overflow: "hidden",
     backgroundColor: "white",
+   // zIndex: 99999,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   modalOverlay: {
     flex: 1,
@@ -86,7 +91,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 20,
+    //borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
 });
 
