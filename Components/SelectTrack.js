@@ -12,7 +12,6 @@ import CodeOverlay from "./CodeOverlay";
 const CustomComponent = () => {
   return (
     <View style={styles.container}>
-      <ScrollView>
         {/*<CodeOverlay />*/}
         <Text style={styles.titleText}>Añadir pista de</Text>
         <View style={styles.gridContainer}>
@@ -21,6 +20,7 @@ const CustomComponent = () => {
               <Image
                 source={require("../images/Image_Button.png")}
                 style={styles.backgroundImage}
+                resizeMode="contain"
               />
               <Image
                 source={require("../images/Image_Icon.png")}
@@ -29,11 +29,11 @@ const CustomComponent = () => {
               />
               <Text style={styles.labelText}>Imagen</Text>
             </TouchableOpacity>
-            <View style={styles.separator} />
             <TouchableOpacity style={styles.button}>
               <Image
                 source={require("../images/Text_Button.png")}
                 style={styles.backgroundImage}
+                resizeMode="contain"
               />
               <Image
                 source={require("../images/icon_text.png")}
@@ -43,12 +43,12 @@ const CustomComponent = () => {
               <Text style={styles.labelText}>Texto</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.verticalSeparator} />
           <View style={styles.rowContainer}>
             <TouchableOpacity style={styles.button}>
               <Image
                 source={require("../images/Mic_Button.png")}
                 style={styles.backgroundImage}
+                resizeMode="contain"
               />
               <Image
                 source={require("../images/icon_audio.png")}
@@ -57,11 +57,11 @@ const CustomComponent = () => {
               />
               <Text style={styles.labelText}>Audio</Text>
             </TouchableOpacity>
-            <View style={styles.separator} />
             <TouchableOpacity style={styles.button}>
               <Image
                 source={require("../images/Geo_Button.png")}
                 style={styles.backgroundImage}
+                resizeMode="contain"
               />
               <Image
                 source={require("../images/icon_geo.png")}
@@ -72,15 +72,15 @@ const CustomComponent = () => {
             </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
     </View>
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
     paddingVertical: 40,
   },
@@ -90,33 +90,29 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
     marginBottom: 10,
-  },
-  verticalSeparator: {
-    height: 20,
-  },
-  separator: {
-    width: 20,
   },
   button: {
     width: 150,
     height: 120,
     alignItems: "center",
-    borderRadius: 10,
+    justifyContent: "center",
+   // borderRadius: 10,
     overflow: "hidden",
   },
   backgroundImage: {
     position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
+    top: "10%",   // Ajustado para centrar verticalmente
+    left: "10%",  // Ajustado para centrar horizontalmente
+    width: "80%",
+    height: "80%",
   },
   centeredForegroundImage: {
     marginTop: 20,
-    width: "40%",
-    height: "40%",
+    width: "30%",
+    height: "30%",
+
   },
   labelText: {
     marginTop: 10,
@@ -129,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: 20,
   },
 });
 
