@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     inputDescription: {
-        backgroundColor: 'grey',
+        backgroundColor: '#C0C0C0',
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: '#C0C0C0',
         borderRadius: 15,
         paddingTop: 30,
         padding: 10,

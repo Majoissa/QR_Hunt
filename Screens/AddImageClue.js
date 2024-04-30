@@ -4,6 +4,11 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import Navbar from '../Components/Navbar';
 import SaveClue from '../Components/SaveClueButton';
 import SaveBtn from '../images/Btn_CrearPartida.png';
+import CoverImgSelector from '../Components/CoverImgSelector';
+import TitleInput from '../Components/TitleInput';
+import decorateMapComponent from 'react-native-maps/lib/decorateMapComponent';
+import DescriptionInput from '../Components/DescriptionInput';
+
 // Define el componente AddImageClue
 const AddImageClue = () => {
   return (
@@ -12,6 +17,11 @@ const AddImageClue = () => {
     style={styles.backgroundImage}
     >
     <Navbar title="Crear Pista Imagen"/>
+    <View style={{padding: 20, marginBottom: 90}}>
+        <CoverImgSelector/>
+        <TitleInput/>
+        <DescriptionInput/>
+    </View>   
     <SaveClue imgSrc={SaveBtn} text="GUARDAR"/>
     </ImageBackground>
     

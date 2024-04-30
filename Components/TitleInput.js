@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
         marginBottom: 5, // Espacio entre la etiqueta y el campo de texto
     },
     inputTitle: {
-        backgroundColor: 'grey', // Fondo gris para mayor visibilidad
+        backgroundColor: '#C0C0C0', // Fondo gris para mayor visibilidad
         borderWidth: 1, // Borde sutil para el campo de entrada
-        borderColor: 'gray', // Color del borde
+        borderColor: '#C0C0C0', // Color del borde
         borderRadius: 15, // Bordes redondeados
         padding: 10, // Espacio interior
     },

@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     },
     container: {
         width: '100%',
-        backgroundColor: 'grey',
+        backgroundColor: '#C0C0C0',
         borderRadius: 20,
         overflow: 'hidden',
         height: 180,
