@@ -91,14 +91,12 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: "row",
     justifyContent: "center",
-   // marginBottom: 5,
   },
   button: {
     width: 160,
     height: 130,
     alignItems: "center",
     justifyContent: "center",
-   // borderRadius: 10,
     overflow: "hidden",
   },
   backgroundImage: {
