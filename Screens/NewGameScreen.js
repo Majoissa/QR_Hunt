@@ -24,23 +24,7 @@ NewGameScreen = ({ navigation }) => {
             <ScrollView style={{width: '100%', paddingTop: 80, paddingBottom: 80}}>
                 <View style={{padding: 20, paddingBottom: 80}}>
                     <CoverImgSelector/>
-                    {/*<View style={styles.titleContainer}>
-                        <Text style={styles.label}>Título (obligatorio)</Text>
-                        <TextInput
-                            style={styles.inputTitle}
-                            placeholder="Ingresa un título único que no se repita"
-                        />
-    </View>*/}
                     <TitleInput/>
-                    {/*<View style={styles.descriptionContainer}>
-                        <Text style={styles.label}>Descripción</Text>
-                        <TextInput
-                            style={styles.inputDescription}
-                            multiline={true} // Permite que el campo de texto acepte múltiples líneas
-                            numberOfLines={4} // Define el número de líneas que el campo de texto mostrará por defecto
-                            placeholder="Escribe aquí la descripción del juego"
-                        />
-</View>*/}          
                     <DescriptionInput/>
                     <View style={{ bottom: 20}}>
                         <Text style={styles.label}>Pistas</Text>
@@ -80,9 +64,9 @@ NewGameScreen = ({ navigation }) => {
             </ScrollView>
             <AddClue/>
            {/*<AddClue/>*/} 
-            </ImageBackground>
-            );
-        }
+        </ImageBackground>
+        );
+    }
         
 const styles = StyleSheet.create({
 backgroundImage: {

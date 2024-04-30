@@ -1,13 +1,20 @@
 // Importa los componentes necesarios de React y React Native
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import Navbar from '../Components/Navbar';
+import SaveClue from '../Components/SaveClueButton';
+import SaveBtn from '../images/Btn_CrearPartida.png';
 // Define el componente AddImageClue
 const AddImageClue = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>ADD IMAGE CLUE SCREEN</Text>
-    </View>
+    <ImageBackground
+    source={require('../images/Background_Hint_Image.png')}
+    style={styles.backgroundImage}
+    >
+    <Navbar title="Crear Pista Imagen"/>
+    <SaveClue imgSrc={SaveBtn} text="GUARDAR"/>
+    </ImageBackground>
+    
   );
 };
 
@@ -22,7 +29,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20, // Tamaño de fuente grande
     fontWeight: 'bold' // Texto en negrita
-  }
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    //alignItems: 'center',
+    //padding: 20,
+            },
 });
 
 // Exporta el componente para que pueda ser usado en otros archivos

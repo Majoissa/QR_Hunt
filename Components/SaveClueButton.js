@@ -1,8 +1,8 @@
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 
 const SaveClueButton = ({ text, onPress, imgSrc }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Image source={imgSrc} style={styles.buttonBackground} />
         <Text style={styles.buttonText}>{text}</Text>
@@ -12,6 +12,22 @@ const SaveClueButton = ({ text, onPress, imgSrc }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    position: 'absolute', // Posicionamiento absoluto
+    height: 100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 25,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    overflow: "hidden",
+    backgroundColor: "white",
+    zIndex: 10, // Asegura que el componente se muestre sobre otros elementos
+    bottom: 0, // Fija el componente en la parte inferior
+    left: 0,
+    right: 0,
+  },
   button: {
     width: 225,
     height: 55,
@@ -34,5 +50,6 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
 });
+
 
 export default SaveClueButton;
