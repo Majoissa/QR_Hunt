@@ -7,7 +7,6 @@ import HomeScreen from "./Screens/HomeScreen";
 import SelectorGameScreen from "./Screens/SelectorGameScreen";
 import CodeOverlay from "./Components/CodeOverlay";
 import AddImageClue from './Screens/AddImageClue';
-import AddAudioClue from './Screens/AddAudioClue';
 import AddTextClue from './Screens/AddTextClue';
 
 const Stack = createStackNavigator();
@@ -24,7 +23,6 @@ export default function App() {
         <Stack.Screen name="NewGame" component={NewGameScreen} />
         <Stack.Screen name="Overlay" component={CodeOverlay} />
         <Stack.Screen name="AddImageClue" component={AddImageClue} />
-        <Stack.Screen name="AddAudioClue" component={AddAudioClue} />
         <Stack.Screen name="AddTextClue" component={AddTextClue} />
       </Stack.Navigator>
     </NavigationContainer>

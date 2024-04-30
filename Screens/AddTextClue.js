@@ -22,7 +22,7 @@ const AddTextClue = () => {
         <TitleInput/>
         <DescriptionInput/>
     </View>   
-    <SaveClue imgSrc={SaveBtn} text="GUARDAR"/>
+    <SaveClue imgSrc={SaveBtn} text="AÑADIR PISTA"/>
     </ImageBackground>
     
   );
