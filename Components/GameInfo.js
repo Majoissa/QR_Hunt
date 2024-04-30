@@ -1,10 +1,18 @@
-// GameInfo.js
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 
-const GameInfo = ({title, description, difficulty, qrCode }) => {
+const GameInfo = ({title, description, difficulty, qrCode, onDelete}) => {
   return (
-    <View style={styles.infoContainer}>
+
+   
+    <View style={styles.infoContainer}> 
+         <ScrollView style={{ height: 600  }}>
+        <TouchableOpacity onPress={onDelete} style={styles.imageButton}>
+          <Image 
+            source={require('../images/Delette_Button.png')} // Asegúrate de que la ruta sea correcta
+            style={styles.imageStyle} 
+          />
+        </TouchableOpacity>
     <Text style={styles.gameTitle}>{title}</Text>
       <Text style={styles.descriptionTitle}>Descripción</Text>
       <Text style={styles.descriptionText}>{description}</Text>
@@ -21,21 +29,36 @@ const GameInfo = ({title, description, difficulty, qrCode }) => {
       <TouchableOpacity style={styles.playButton}>
         <Text style={styles.playButtonText}>JUGAR</Text>
       </TouchableOpacity>
+      </ScrollView>
     </View>
+
   );
 };
 
 const styles = StyleSheet.create({
   infoContainer: {
+    position: 'absolute',
+    left: '1%',
+   
     paddingTop: 30, // Ajusta esto al tamaño de GameHeader
-    marginTop: -250, // Esto es para la superposición, debería ser igual a la altura del GameHeader pero negativo
+    marginTop: 280, // Esto es para la superposición, debería ser igual a la altura del GameHeader pero negativo
     borderRadius: 25,
     backgroundColor: 'white',
     padding: 15,
-    zIndex: 3, // Mayor que el zIndex de GameHeader para superponerse sobre él
+    height: 500,
     overflow: 'hidden', // Asegura que el contenido interno no desborde los bordes redondeados
   },
-  
+
+  imageStyle: {
+    width: 60, // Ajusta el ancho según necesites
+    height: 60},// Ajusta la altura según necesites
+    
+  imageButton:{
+      position: 'absolute',
+    right: 10, // Espacio desde el borde derecho del contenedor
+    top: 0 // Espacio desde el borde superior del contenedor
+  },
+
   gameTitle: {
     fontSize: 24,
     fontWeight: 'bold',
