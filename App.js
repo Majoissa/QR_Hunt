@@ -6,6 +6,9 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import HomeScreen from "./Screens/HomeScreen";
 import SelectorGameScreen from "./Screens/SelectorGameScreen";
 import CodeOverlay from "./Components/CodeOverlay";
+import AddImageClue from './Screens/AddImageClue';
+import AddAudioClue from './Screens/AddAudioClue';
+import AddTextClue from './Screens/AddTextClue';
 
 const Stack = createStackNavigator();
 
@@ -13,13 +16,16 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="NewGame"
+        initialRouteName="Home"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="MyGames" component={SelectorGameScreen} />
         <Stack.Screen name="NewGame" component={NewGameScreen} />
         <Stack.Screen name="Overlay" component={CodeOverlay} />
+        <Stack.Screen name="AddImageClue" component={AddImageClue} />
+        <Stack.Screen name="AddAudioClue" component={AddAudioClue} />
+        <Stack.Screen name="AddTextClue" component={AddTextClue} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -16,7 +16,7 @@ const CustomComponent = () => {
         <Text style={styles.titleText}>Añadir pista de</Text>
         <View style={styles.gridContainer}>
           <View style={styles.rowContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => console.log("IMAGE CLUE")}>
               <Image
                 source={require("../images/Image_Button.png")}
                 style={styles.backgroundImage}
