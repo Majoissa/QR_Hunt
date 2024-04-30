@@ -9,7 +9,7 @@ const GameInfo = ({title, description, difficulty, qrCode, onDelete}) => {
          <ScrollView style={{ height: 600  }}>
         <TouchableOpacity onPress={onDelete} style={styles.imageButton}>
           <Image 
-            source={require('../images/Delette_Button.png')} // Asegúrate de que la ruta sea correcta
+            source={require('../images/Delette_Button.png')}
             style={styles.imageStyle} 
           />
         </TouchableOpacity>
@@ -40,23 +40,23 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: '1%',
    
-    paddingTop: 30, // Ajusta esto al tamaño de GameHeader
-    marginTop: 280, // Esto es para la superposición, debería ser igual a la altura del GameHeader pero negativo
+    paddingTop: 30, 
+    marginTop: 280, 
     borderRadius: 25,
     backgroundColor: 'white',
     padding: 15,
     height: 500,
-    overflow: 'hidden', // Asegura que el contenido interno no desborde los bordes redondeados
+    overflow: 'hidden', 
   },
 
   imageStyle: {
-    width: 60, // Ajusta el ancho según necesites
-    height: 60},// Ajusta la altura según necesites
+    width: 60, 
+    height: 60},
     
   imageButton:{
       position: 'absolute',
-    right: 10, // Espacio desde el borde derecho del contenedor
-    top: 0 // Espacio desde el borde superior del contenedor
+    right: 10, 
+    top: 0 
   },
 
   gameTitle: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 16,
-    textAlign: 'center', // Asegura que el título esté centrado
+    textAlign: 'center', 
   },
   descriptionTitle: {
     fontSize: 18,

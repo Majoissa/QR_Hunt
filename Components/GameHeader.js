@@ -15,8 +15,8 @@ const GameHeader = ({ imageUrl }) => {
 const styles = StyleSheet.create({
   headerImage: {
     position:'relative',
-    height: 350, // Ajusta esta altura según tus necesidades
-    overflow: 'hidden', // Esto es necesario para que ImageBackground respete los bordes redondeados
+    height: 350, 
+    overflow: 'hidden',
   },
 });
 
