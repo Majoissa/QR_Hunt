@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, ImageBackground, Image } from 'react-native';
 import CoverImgSelector from '../Components/CoverImgSelector';
 import TitleInput from '../Components/TitleInput';
+import DescriptionInput from '../Components/DescriptionInput';
 import { ScrollView } from 'react-native-gesture-handler';
 import Navbar from '../Components/Navbar';
 import TextIcon from '../images/Text_Icon.png';
@@ -31,7 +32,7 @@ NewGameScreen = ({ navigation }) => {
                         />
     </View>*/}
                     <TitleInput/>
-                    <View style={styles.descriptionContainer}>
+                    {/*<View style={styles.descriptionContainer}>
                         <Text style={styles.label}>Descripción</Text>
                         <TextInput
                             style={styles.inputDescription}
@@ -39,7 +40,8 @@ NewGameScreen = ({ navigation }) => {
                             numberOfLines={4} // Define el número de líneas que el campo de texto mostrará por defecto
                             placeholder="Escribe aquí la descripción del juego"
                         />
-                    </View>
+</View>*/}          
+                    <DescriptionInput/>
                     <View style={{ bottom: 20}}>
                         <Text style={styles.label}>Pistas</Text>
                         <View style={styles.row}>
