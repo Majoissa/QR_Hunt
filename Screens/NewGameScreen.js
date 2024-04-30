@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, ImageBackground, Image } from 'react-native';
 import CoverImgSelector from '../Components/CoverImgSelector';
+import TitleInput from '../Components/TitleInput';
 import { ScrollView } from 'react-native-gesture-handler';
 import Navbar from '../Components/Navbar';
 import TextIcon from '../images/Text_Icon.png';
@@ -22,13 +23,14 @@ NewGameScreen = ({ navigation }) => {
             <ScrollView style={{width: '100%', paddingTop: 80, paddingBottom: 80}}>
                 <View style={{padding: 20, paddingBottom: 80}}>
                     <CoverImgSelector/>
-                    <View style={styles.titleContainer}>
+                    {/*<View style={styles.titleContainer}>
                         <Text style={styles.label}>Título (obligatorio)</Text>
                         <TextInput
                             style={styles.inputTitle}
                             placeholder="Ingresa un título único que no se repita"
                         />
-                    </View>
+    </View>*/}
+                    <TitleInput/>
                     <View style={styles.descriptionContainer}>
                         <Text style={styles.label}>Descripción</Text>
                         <TextInput
