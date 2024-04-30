@@ -1,13 +1,30 @@
 // Importa los componentes necesarios de React y React Native
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import Navbar from '../Components/Navbar';
+import SaveClue from '../Components/SaveClueButton';
+import SaveBtn from '../images/Button_Resolve_Text.png';
+import CoverImgSelector from '../Components/CoverImgSelector';
+import TitleInput from '../Components/TitleInput';
+import decorateMapComponent from 'react-native-maps/lib/decorateMapComponent';
+import DescriptionInput from '../Components/DescriptionInput';
 
 // Define el componente AddImageClue
 const AddTextClue = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>ADD TEXT CLUE SCREEN</Text>
-    </View>
+    <ImageBackground
+    source={require('../images/Background_Hint_Text.png')}
+    style={styles.backgroundImage}
+    >
+    <Navbar title="Crear Pista Texto"/>
+    <View style={{padding: 20, marginBottom: 90}}>
+        <CoverImgSelector/>
+        <TitleInput/>
+        <DescriptionInput/>
+    </View>   
+    <SaveClue imgSrc={SaveBtn} text="GUARDAR"/>
+    </ImageBackground>
+    
   );
 };
 
@@ -22,7 +39,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20, // Tamaño de fuente grande
     fontWeight: 'bold' // Texto en negrita
-  }
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    //alignItems: 'center',
+    //padding: 20,
+    },
 });
 
 // Exporta el componente para que pueda ser usado en otros archivos
