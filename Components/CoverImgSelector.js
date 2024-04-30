@@ -91,7 +91,7 @@ const CoverImgSelector = () => {
     <View style={styles.coverImgContainer}>
       <Text style={styles.lbl}>Imagen de portada (opcional)</Text>
       <TouchableOpacity onPress={handleImagePress} style={styles.container}>
-      {image && <Image source={{ uri: image }} style={{ width: '100%', height: '100%' }} />}
+      {image && <Image source={{ uri: image }} style={{ width: '100%', height: '100%' }}  resizeMode="cover"/>}
       </TouchableOpacity>
     </View>
   );
@@ -112,8 +112,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'grey',
         borderRadius: 20,
         overflow: 'hidden',
-        paddingTop: 60,
-        paddingBottom: 60,
+        height: 180,
+        //paddingTop: 60,
+       // paddingBottom: 60,
         bottom: 10
     },
 })
