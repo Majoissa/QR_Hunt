@@ -8,15 +8,17 @@ import {
   ScrollView,
 } from "react-native";
 import CodeOverlay from "./CodeOverlay";
+import { useNavigation } from '@react-navigation/native';
 
 const CustomComponent = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
         {/*<CodeOverlay />*/}
         <Text style={styles.titleText}>Añadir pista de</Text>
         <View style={styles.gridContainer}>
           <View style={styles.rowContainer}>
-            <TouchableOpacity style={styles.button} onPress={() => console.log("IMAGE CLUE")}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddImageClue')}>
               <Image
                 source={require("../images/Image_Button.png")}
                 style={styles.backgroundImage}
@@ -29,7 +31,7 @@ const CustomComponent = () => {
               />
               <Text style={styles.labelText}>Imagen</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddTextClue')}>
               <Image
                 source={require("../images/Text_Button.png")}
                 style={styles.backgroundImage}
@@ -44,7 +46,7 @@ const CustomComponent = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.rowContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddAudioClue')}>
               <Image
                 source={require("../images/Mic_Button.png")}
                 style={styles.backgroundImage}
