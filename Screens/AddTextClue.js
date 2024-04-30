@@ -8,22 +8,24 @@ import CoverImgSelector from '../Components/CoverImgSelector';
 import TitleInput from '../Components/TitleInput';
 import decorateMapComponent from 'react-native-maps/lib/decorateMapComponent';
 import DescriptionInput from '../Components/DescriptionInput';
+import CodeOverlay from '../Components/CodeOverlay';
 
 // Define el componente AddImageClue
 const AddTextClue = () => {
   return (
-    <ImageBackground
-    source={require('../images/Background_Hint_Text.png')}
+    <View
+    //source={require('../images/Background_Hint_Text.png')}
     style={styles.backgroundImage}
     >
     <Navbar title="Crear Pista Texto"/>
-    <View style={{padding: 20, marginBottom: 90}}>
+    <View style={{padding: 20, marginBottom: 100}}>
         <CoverImgSelector/>
         <TitleInput/>
         <DescriptionInput/>
+        
     </View>   
     <SaveClue imgSrc={SaveBtn} text="AÑADIR PISTA"/>
-    </ImageBackground>
+    </View>
     
   );
 };
@@ -44,6 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    backgroundColor: '#E3963E',
     //alignItems: 'center',
     //padding: 20,
     },
