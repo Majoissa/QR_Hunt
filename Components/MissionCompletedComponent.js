@@ -1,31 +1,39 @@
-import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
-import Video from 'react-native-video';
+import React from 'react';
+import { View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet } from 'react-native';
+import { Video } from "expo-av";
 
 const MissionCompletedComponent = () => {
+  return (
+    <ImageBackground
+      source={require('../images/Home_Background_Animation00.png')}
+      style={styles.background}
+    >
       <View style={styles.container}>
         <Text style={[styles.text, styles.missionCompletedText]}>
-          MISIÓN COMPLETADA!
+          MISIÓN
+        </Text>
+        <Text style={[styles.text, styles.missionCompletedText]}>
+          COMPLETADA!
         </Text>
         <Text style={[styles.text, styles.descriptionText]}>
           ¡Muy bien aventurero! Encontraste el tesoro escondido!
         </Text>
         <Video
-          source={require('../videos/YouWin.mp4')} // Ruta de tu video del tesoro
-          style={styles.video}
+          source={require("../videos/YouWin.mp4")}
+          style={styles.videoBackground}
           resizeMode="cover"
-          repeat={true}
-          paused={false}
+          shouldPlay
         />
         <TouchableOpacity style={styles.button}>
-          <ImageBackground
-            source={require('../images/Button_Resolve_Text.png')} // Ruta de tu imagen de fondo del botón
+        <Image
+            source={require("../images/Button_Resolve_Text.png")}
             style={styles.buttonBackground}
-            resizeMode="cover"
-          >
-            <Text style={styles.buttonText}>VOLVER A PROBAR</Text>
-          </ImageBackground>
+          />
+          <Text style={styles.buttonText}>Crear Partida</Text>
         </TouchableOpacity>
       </View>
+    </ImageBackground>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -35,6 +43,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
@@ -43,29 +53,29 @@ const styles = StyleSheet.create({
   },
   missionCompletedText: {
     fontSize: 36,
-    color: 'yellow',
+    color: 'orange',
   },
   descriptionText: {
     fontSize: 18,
     color: 'white',
   },
-  video: {
-    width: 200,
-    height: 200,
-    marginBottom: 10,
+  videoBackground: {
+    width: 300,
+    height: 300,
+    marginBottom: 20,
   },
   button: {
     marginTop: 20,
   },
   buttonBackground: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 24,
-    textAlign: 'center',
+    fontWeight: "bold",
+    position: "absolute",
   },
 });
 
