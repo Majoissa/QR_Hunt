@@ -9,9 +9,14 @@ import TitleInput from '../Components/TitleInput';
 import decorateMapComponent from 'react-native-maps/lib/decorateMapComponent';
 import DescriptionInput from '../Components/DescriptionInput';
 import CodeOverlay from '../Components/CodeOverlay';
+import { useNavigation } from '@react-navigation/native';
 
 // Define el componente AddImageClue
 const AddTextClue = () => {
+  const navigation = useNavigation();
+  const navigateToCodeOverlay = () => {
+    navigation.navigate('CodeOverlayScreen');  // Usa el nombre que asignaste en el Stack Navigator
+  };
   return (
     <View
     //source={require('../images/Background_Hint_Text.png')}
@@ -22,9 +27,13 @@ const AddTextClue = () => {
         <CoverImgSelector/>
         <TitleInput/>
         <DescriptionInput/>
+        <View>
+          <CodeOverlay/>
+        </View>
         
+      
     </View>   
-    <SaveClue imgSrc={SaveBtn} text="AÑADIR PISTA"/>
+    <SaveClue imgSrc={SaveBtn} text="AÑADIR PISTA" onPress={navigateToCodeOverlay}/>
     </View>
     
   );

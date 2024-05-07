@@ -8,7 +8,7 @@ import QRIcon from "../images/QR_Icon.png";
 function CodeOverlay() {
     const navigation = useNavigation();
     const [getInputCode, setInputCode] = useState(false);
-    const [code, setCode] = useState("ABC123");
+    const [code, setCode] = useState("ABC123...");
     const [selectedButton, setSelectedButton] = useState("code");
     const [qrIcon, setQrIcon] = useState(QRIcon);
 
@@ -89,18 +89,22 @@ function CodeOverlay() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'flex-end',
+       // flex: 1,
+        //justifyContent: 'flex-end',
         alignItems: 'center',
+        height: '30%',
+      //  backgroundColor: 'red',
+
     },
     panel: {
         backgroundColor: "#003B2C",
-        width: '75%',
+        width: '80%',
         alignSelf: 'center',
-        height: 125,
-        borderRadius: 25,
+       // height: 125,
+        borderRadius: 20,
         alignItems: 'center',
-        bottom: 200,
+        top: 20,
+      //  bottom: 200,
     },
     panelAbsolute: {
         backgroundColor: "#003B2C",
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
         height: 125,
         borderRadius: 25,
         alignItems: 'center',
-        position: "absolute",
+      //  position: "absolute",
         top: 200,
     },
     text1: {
@@ -119,14 +123,14 @@ const styles = StyleSheet.create({
     },
     text2: {
         color: "#ffffff",
-        fontSize: 55,
+        fontSize: 40,
         fontWeight: 'bold',
         paddingHorizontal: 15,
         width: "75%",
     },
     text3: {
         color: "#ffffff",
-        fontSize: 55,
+        fontSize: 40,
         fontWeight: 'bold',
         paddingHorizontal: 15,
         width: "100%",
@@ -136,15 +140,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-end',
         flexDirection: 'row',
-        marginTop: 2,
+       // marginTop: 2,
     },
     image: {
-        height: 40,
-        width: 40,
+        height: 30,
+        width: 30,
+        margin: 15,
     },
     overlay: {
         flex: 1,
-        position: 'absolute',
+       // position: 'absolute',
         left: 0,
         top: 0,
         opacity: 0.7,
@@ -164,7 +169,7 @@ const styles = StyleSheet.create({
         width: '65%',
         justifyContent: 'center',
         alignItems: 'center',
-        position: "absolute",
+      //  position: "absolute",
         height: 55,
         top: 350,
         borderRadius: 25,
@@ -172,46 +177,49 @@ const styles = StyleSheet.create({
     buttonGroup: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
         gap: 15,
-        bottom: 340,
-        zIndex: -1,
-        position: "absolute"
+        top: 7,
+      //  bottom: 40,
+       // zIndex: -1,
+     //  position: "absolute"
     },
     qrButton: {
         backgroundColor: "#3a7356",
-        width: 145,
-        height: 120,
+      //  width: 145,
+       // height: 120,
+       padding: 20,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
         opacity: 0.5,
     },
     qrIcon: {
-        height: 80,
-        width: 80,
+        height: 60,
+        width: 60,
     },
     codeButton: {
         backgroundColor: "#3a7356",
-        width: 145,
-        height: 120,
+       // width: 145,
+       // height: 120,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
         opacity: 0.5,
     },
     codeText: {
-        fontSize: 55,
+        fontSize: 40,
         color: "white",
     },
     codeSelectedText: {
-        fontSize: 55,
+        fontSize: 40,
         color: "#ffb708",
     },
     selectedButton: {
         backgroundColor: "white",
-        width: 145,
-        height: 120,
+        padding: 20,
+       // width: 145,
+        //height: 120,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
@@ -222,10 +230,10 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
         left: 20,
         fontWeight: "bold",
-        bottom: 475,
-        position: "absolute",
+       // bottom: 475,
+      //  position: "absolute",
         color: "white",
-        zIndex: -1,
+        //zIndex: -1,
     },
 })
 
