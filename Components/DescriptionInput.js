@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 const DescriptionInput = () => {
+    const [description, setDescription] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleGuardarPartida = async () => {
+        try {
+          const id = await insertPartida(title, image, description);
+          console.log(`Partida guardada con ID: ${id}`);
+          setMessage(`Partida guardada con ID: ${id}`);
+          setPartidaId(id);
+        } catch (error) {
+          setMessage('Error al guardar la partida');
+          console.error(error);
+        }
+      };
     return (
         <View style={styles.descriptionContainer}>
             <Text style={styles.label}>Descripción</Text>
@@ -10,6 +25,8 @@ const DescriptionInput = () => {
                 multiline={true} // Permite que el campo de texto acepte múltiples líneas
                 numberOfLines={4} // Define el número de líneas que el campo de texto mostrará por defecto
                 placeholder="Escribe aquí la descripción del juego"
+                onChangeText={setDescription}
+                value={description}
             />
         </View>
     );

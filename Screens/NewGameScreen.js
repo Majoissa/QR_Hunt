@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, ImageBackground, Image } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ImageBackground, Image, Button, Modal, FlatList, TouchableOpacity } from 'react-native';
 import CoverImgSelector from '../Components/CoverImgSelector';
 import TitleInput from '../Components/TitleInput';
 import DescriptionInput from '../Components/DescriptionInput';
@@ -10,8 +10,11 @@ import MicIcon from '../images/Mic_Icon.png';
 import ImageIcon from '../images/Image_Icon.png';
 import AddClue from '../Components/AddClue';
 import { Zocial } from '@expo/vector-icons';
+import { insertPartida, insertPista, getAllPistas } from '../Components/DBManager';
+
 
 NewGameScreen = ({ navigation }) => {
+
     return(
         <ImageBackground
             source={require('../images/Home_Background_Animation00.png')}

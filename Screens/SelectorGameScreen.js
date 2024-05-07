@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,11 +9,27 @@ import {
   Dimensions,
 } from "react-native";
 import GameComponentContainer from "../Components/GameComponentContainer";
+import { getAllPartidas } from '../Components/DBManager';
 
 const image = require("../images/Home_Background_Animation00.png");
 const leaves = require("../images/FlorsButton.png");
 const leavesRight = require("../images/FlorsExtreDevantButton.png");
 const SelectorGameScreen = () => {
+  const [partidas, setPartidas] = useState([]);
+
+  useEffect(() => {
+    cargarPartidas();
+  }, []);
+
+  const cargarPartidas = async () => {
+    try {
+      const partidasDB = await getAllPartidas();
+      setPartidas(partidasDB);
+    } catch (error) {
+      console.error('Error al cargar las partidas:', error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -22,7 +38,7 @@ const SelectorGameScreen = () => {
         style={styles.image}
         imageStyle={{ opacity: 0.7 }}
       >
-        <GameComponentContainer />
+        <GameComponentContainer partidas={partidas} />
       </ImageBackground>
       <View pointerEvents="none">
         <Image source={leaves} style={styles.leaves} />

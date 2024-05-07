@@ -4,15 +4,15 @@ import { Dimensions } from "react-native";
 
 const tesoro = require("../images/Extra_Image.png");
 
-const GameComponent = ({ isOneUser }) => {
+const GameComponent = ({ partida, isOneUser }) => {
+  const { Title, Description } = partida;
   return (
     <View style={styles.container}>
       <Image source={tesoro} style={styles.image} />
       <View style={styles.tresure}>
-        <Text style={styles.title}>El tesoro del jardín</Text>
+        <Text style={styles.title}>{Title}</Text>
         <Text style={styles.paragraph}>
-          Parece que alguien ha escondido un valioso tesoro en algun lugar de
-          este jardín...
+        {Description}
         </Text>
         {isOneUser ? (
           <View style={styles.vision}>

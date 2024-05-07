@@ -12,7 +12,7 @@ import GameComponent from "./GameComponent";
 import NoGameComponent from "./NoGameComponent";
 import { useNavigation } from "@react-navigation/core";
 
-const GameComponentContainer = ({ noGames }) => {
+const GameComponentContainer = ({ partidas }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.outerContainer}>
@@ -29,15 +29,12 @@ const GameComponentContainer = ({ noGames }) => {
         </View>
       </View>
       <ScrollView style={styles.container}>
-        {noGames ? (
+        {partidas.length === 0 ? (
           <NoGameComponent />
         ) : (
-          <>
-            <GameComponent isOneUser={true} />
-            <GameComponent isOneUser={false} />
-            <GameComponent isOneUser={true} />
-            <GameComponent isOneUser={false} />
-          </>
+          partidas.map(partida => (
+            <GameComponent key={partida.Id_partida} partida={partida} />
+          ))
         )}
       </ScrollView>
     </View>
