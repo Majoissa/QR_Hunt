@@ -215,7 +215,46 @@ export const dropTables = () => {
     }
   };
   
+  export const insertOrUpdatePista = async (id, type, image, title, description, audio, geolocalizacion, solution, idPartida) => {
+    // Verifica si el ID existe para determinar si se trata de una inserción o una actualización
+    if (id) {
+      const sqlStatement = 'UPDATE Pistas SET Type = ?, Image = ?, Title = ?, Description = ?, Audio = ?, geolocalizacion = ?, solution = ?, Id_partida = ? WHERE Id_pista = ?';
+      const values = [type, image, title, description, audio, geolocalizacion, solution, idPartida, id];
   
+      try {
+        await new Promise((resolve, reject) => {
+          db.transaction(
+            (tx) => {
+              tx.executeSql(
+                sqlStatement,
+                values,
+                (_, result) => {
+                  console.log(`Pista actualizada con ID: ${id}`);
+                  resolve();
+                },
+                (_, error) => {
+                  console.error('Error al actualizar la pista:', error);
+                  reject(error);
+                }
+              );
+            },
+            (_, error) => {
+              console.error('Error al iniciar la transacción:', error);
+              reject(error);
+            },
+            async () => {
+              // Agregar un pequeño retraso entre las transacciones para evitar conflictos
+              await new Promise(resolve => setTimeout(resolve, 100));
+            }
+          );
+        });
+      } catch (error) {
+        console.error('Error al actualizar la pista:', error);
+        throw error;
+      }
+    } else {
+      // Si no se proporciona un ID, se trata de una inserción
+      return insertPista(type, image, title, description, audio, geolocalizacion, solution, idPartida);
+    }
+  };
   
-  
-

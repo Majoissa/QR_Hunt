@@ -5,6 +5,7 @@ import HomeScreen from './Screens/HomeScreenDemo';
 import CrearPartidaScreen from './Screens/CrearPartidaScreenDemo';
 import CargarPartidaScreenDemo from './Screens/CargarPartidaScreenDemo';
 import EditarPartidaScreenDemo from './Screens/EditarPartidaScreenDemo';
+import VerPistasScreenDemo from './Screens/VerPistasScreenDemo';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,8 @@ const App = () => {
         <Stack.Screen name="CrearPartida" component={CrearPartidaScreen} />
         <Stack.Screen name="CargarPartida" component={CargarPartidaScreenDemo} />
         <Stack.Screen name="EditarPartida" component={EditarPartidaScreenDemo} />
+        <Stack.Screen name="Pistas" component={VerPistasScreenDemo} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

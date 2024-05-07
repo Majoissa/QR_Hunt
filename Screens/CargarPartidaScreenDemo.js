@@ -11,6 +11,12 @@ const CargarPartidaScreenDemo = () => {
     cargarPartidas();
   }, []);
 
+  const handleVerPistas = (partida) => {
+    // Navega a la pantalla para ver/editar las pistas y pasa el ID de la partida como parámetro
+    navigation.navigate('Pistas', { partidaId: partida.Id_partida });
+  };
+  
+
   const cargarPartidas = async () => {
     try {
       const partidasDB = await getAllPartidas();
@@ -43,12 +49,16 @@ const CargarPartidaScreenDemo = () => {
         <TouchableOpacity style={[styles.button, styles.editButton]} onPress={() => handleEditarPartida(item)}>
           <Text style={styles.buttonText}>Editar</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, styles.pistasButton]} onPress={() => handleVerPistas(item)}>
+          <Text style={styles.buttonText}>Pistas</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.deleteButton]} onPress={() => handleEliminarPartida(item.Id_partida)}>
           <Text style={styles.buttonText}>Eliminar</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
+  
 
   return (
     <View style={styles.container}>

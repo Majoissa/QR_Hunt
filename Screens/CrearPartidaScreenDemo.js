@@ -47,7 +47,7 @@ const CrearPartidaScreenDemo = () => {
         );
         console.log(`Pista guardada con ID: ${pistaId}`);
         // Actualizar la lista de pistas mostradas en la página
-        loadPistas();
+        //loadPistas();
       } else {
         console.error('Error: No se ha creado ninguna partida aún.');
       }
