@@ -1,27 +1,48 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './Screens/HomeScreenDemo';
-import CrearPartidaScreen from './Screens/CrearPartidaScreenDemo';
-import CargarPartidaScreenDemo from './Screens/CargarPartidaScreenDemo';
-import EditarPartidaScreenDemo from './Screens/EditarPartidaScreenDemo';
-import VerPistasScreenDemo from './Screens/VerPistasScreenDemo';
+import React from "react";
+import NewGameScreen from "./Screens/NewGameScreen";
+import { StyleSheet } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import HomeScreen from "./Screens/HomeScreen";
+import SelectorGameScreen from "./Screens/SelectorGameScreen";
+import CodeOverlay from "./Components/CodeOverlay";
+import AddImageClue from "./Screens/AddImageClue";
+import AddAudioClue from "./Screens/AddAudioClue";
+import AddTextClue from "./Screens/AddTextClue";
+import AddGeolocalization from "./Screens/AddGeolocalization";
+import GameDescriptionScreen from "./Screens/GameDescriptionScreen";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
-const App = () => {
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{ headerShown: false }}
+      >
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="CrearPartida" component={CrearPartidaScreen} />
-        <Stack.Screen name="CargarPartida" component={CargarPartidaScreenDemo} />
-        <Stack.Screen name="EditarPartida" component={EditarPartidaScreenDemo} />
-        <Stack.Screen name="Pistas" component={VerPistasScreenDemo} />
-
+        <Stack.Screen name="MyGames" component={SelectorGameScreen} />
+        <Stack.Screen name="NewGame" component={NewGameScreen} />
+        <Stack.Screen name="GameDescriptionScreen" component={GameDescriptionScreen} />
+        <Stack.Screen name="Overlay" component={CodeOverlay} />
+        <Stack.Screen name="AddImageClue" component={AddImageClue} />
+        <Stack.Screen name="AddAudioClue" component={AddAudioClue} />
+        <Stack.Screen name="AddTextClue" component={AddTextClue} />
+        <Stack.Screen
+          name="AddGeolocalization"
+          component={AddGeolocalization}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
