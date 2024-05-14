@@ -1,16 +1,23 @@
-import {View, StyleSheet, Text, Image, TouchableOpacity, TextInput, Dimensions} from "react-native";
+import {View, StyleSheet, Text, Image, TouchableOpacity, TextInput} from "react-native";
 import Navbar from "./Navbar";
 import {useNavigation} from "@react-navigation/native";
 import {useState} from "react";
 import SelectedQR from "../images/QR_Button.png";
 import QRIcon from "../images/QR_Icon.png";
 
-function CodeOverlay() {
+function CodeOverlay({ onEditPress }) {
     const navigation = useNavigation();
     const [getInputCode, setInputCode] = useState(false);
     const [code, setCode] = useState("ABC123...");
     const [selectedButton, setSelectedButton] = useState("code");
     const [qrIcon, setQrIcon] = useState(QRIcon);
+    
+    const handlePress = () => {
+        setInputCode(true);  // Cambio de estado local
+        if (onEditPress) {
+          onEditPress();  // Llama al callback del padre si está disponible
+        }
+      };
 
     const codeEdit = () => {
         setInputCode(!getInputCode)
@@ -70,13 +77,12 @@ function CodeOverlay() {
                             </Text>
                         )}
                         {!getInputCode ? (
-                           <TouchableOpacity onPress={() => setInputCode(true)}> 
+                           <TouchableOpacity onPress={handlePress}> 
                                 <Image source={require("../images/Edit_Icon.png")} style={styles.image}></Image>
                             </TouchableOpacity>
                         ) : null}
                     </View>
                 </View>) : null}
-            <View style={getInputCode ? styles.overlay : {display: "none"}}></View>
             {getInputCode ? (
                 <TouchableOpacity style={styles.acceptButton} onPress={codeEdit}>
                     <Text style={{color: "white", fontSize: 25, fontWeight: 'bold'}}>ACEPTAR</Text>
@@ -86,11 +92,9 @@ function CodeOverlay() {
     )
 }
 
-
-
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+       // flex: 1,
         //justifyContent: 'flex-end',
         alignItems: 'center',
         height: '30%',
@@ -147,17 +151,7 @@ const styles = StyleSheet.create({
         width: 30,
         margin: 15,
     },
-    overlay: {
-        flex: 1,
-        position: 'absolute',
-        left: 0,
-        top: -500,
-        opacity: 0.7,
-        backgroundColor: 'black',
-        width: "400%",
-        height: "600%",
-        zIndex: 2, // Un zIndex menor que los elementos que deben ir encima
-    },
+  
     overlayTitle: {
         justifyContent: 'center',
         alignItems: 'center',

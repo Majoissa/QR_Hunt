@@ -1,6 +1,6 @@
 // Importa los componentes necesarios de React y React Native
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import Navbar from '../Components/Navbar';
 import SaveClue from '../Components/SaveClueButton';
 import SaveBtn from '../images/Button_Resolve_Text.png';
@@ -17,6 +17,13 @@ const AddTextClue = () => {
   const navigateToCodeOverlay = () => {
     navigation.navigate('CodeOverlayScreen');  // Usa el nombre que asignaste en el Stack Navigator
   };
+
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+
+  const handlePress = () => {
+    setIsOverlayVisible(true); 
+  };
+
   return (
     <View
     //source={require('../images/Background_Hint_Text.png')}
@@ -29,15 +36,23 @@ const AddTextClue = () => {
         <TitleInput/>
         <DescriptionInput/>
         <View style={{paddingBottom: 20}}>
-          <CodeOverlay/>
+          <CodeOverlay onEditPress={handlePress}/>
         </View>
         </ScrollView>
     </View>   
+    {isOverlayVisible && (
+        <View style={styles.overlay}>
+          {/* Aquí podrías poner cualquier contenido adicional que necesites mostrar sobre el overlay */}
+        </View>
+      )}
     <SaveClue imgSrc={SaveBtn} text="AÑADIR PISTA" onPress={navigateToCodeOverlay}/>
     </View>
     
   );
 };
+
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 // Estilos para el componente
 const styles = StyleSheet.create({
@@ -59,6 +74,16 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     //padding: 20,
     },
+    overlay: {
+      position: 'absolute',
+      width: windowWidth, // Ancho de la ventana
+      height: windowHeight, // Alto de la ventana
+      backgroundColor: 'black',
+      opacity: 0.7,
+      left: 0,
+      top: 0,
+      zIndex: 2, // Asegúrate de que este zIndex sea adecuado
+  },
 });
 
 // Exporta el componente para que pueda ser usado en otros archivos
