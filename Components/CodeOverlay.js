@@ -189,8 +189,8 @@ const styles = StyleSheet.create({
         opacity: 0.5,
     },
     qrIcon: {
-        height: 60,
-        width: 60,
+        height: 105,
+        width: 105,
         flex: 1, // Asegura que la imagen expanda
         resizeMode: 'contain',
     },
@@ -206,11 +206,12 @@ const styles = StyleSheet.create({
     codeText: {
         fontSize: 40,
         color: "white",
-        padding: 10,
+        padding: 40,
     },
     codeSelectedText: {
         fontSize: 40,
         color: "#ffb708",
+        padding: 25,
     },
     selectedButton: {
         backgroundColor: "white",
