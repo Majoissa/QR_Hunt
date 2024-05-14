@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('QRHunt_db.db');
+const db = SQLite.openDatabaseSync('QRHunt_db.db');
 
 // Crea las tablas si no existen
 const initDatabase = () => {
