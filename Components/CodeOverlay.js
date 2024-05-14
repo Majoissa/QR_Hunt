@@ -180,23 +180,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         gap: 15,
         top: 7,
-      //  bottom: 40,
-       // zIndex: -1,
-     //  position: "absolute"
+
     },
     qrButton: {
         backgroundColor: "#3a7356",
-      //  width: 145,
-       // height: 120,
-       padding: 20,
-        alignItems: "center",
-        justifyContent: "center",
+        padding: 10,
         borderRadius: 10,
         opacity: 0.5,
     },
     qrIcon: {
         height: 60,
         width: 60,
+        flex: 1, // Asegura que la imagen expanda
+        resizeMode: 'contain',
     },
     codeButton: {
         backgroundColor: "#3a7356",
@@ -210,6 +206,7 @@ const styles = StyleSheet.create({
     codeText: {
         fontSize: 40,
         color: "white",
+        padding: 10,
     },
     codeSelectedText: {
         fontSize: 40,
@@ -217,23 +214,15 @@ const styles = StyleSheet.create({
     },
     selectedButton: {
         backgroundColor: "white",
-        padding: 20,
-       // width: 145,
-        //height: 120,
-        alignItems: "center",
-        justifyContent: "center",
+        padding: 10,
         borderRadius: 10,
         opacity: 1,
     },
     resolutionText: {
         fontSize: 18,
         alignSelf: "flex-start",
-        left: 20,
         fontWeight: "bold",
-       // bottom: 475,
-      //  position: "absolute",
         color: "white",
-        //zIndex: -1,
     },
 })
 

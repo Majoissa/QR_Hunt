@@ -1,6 +1,6 @@
 // Importa los componentes necesarios de React y React Native
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Navbar from '../Components/Navbar';
 import SaveClue from '../Components/SaveClueButton';
 import SaveBtn from '../images/Button_Resolve_Text.png';
@@ -23,15 +23,15 @@ const AddTextClue = () => {
     style={styles.backgroundImage}
     >
     <Navbar title="Crear Pista Texto"/>
-    <View style={{padding: 20, marginBottom: 100}}>
+    <View style={{padding: 20, paddingBottom: 30, height: '80%'}}>
+      <ScrollView>
         <CoverImgSelector/>
         <TitleInput/>
         <DescriptionInput/>
-        <View>
+        <View style={{paddingBottom: 20}}>
           <CodeOverlay/>
         </View>
-        
-      
+        </ScrollView>
     </View>   
     <SaveClue imgSrc={SaveBtn} text="AÑADIR PISTA" onPress={navigateToCodeOverlay}/>
     </View>
