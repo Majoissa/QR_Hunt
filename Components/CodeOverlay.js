@@ -1,4 +1,4 @@
-import {View, StyleSheet, Text, Image, TouchableOpacity, TextInput} from "react-native";
+import {View, StyleSheet, Text, Image, TouchableOpacity, TextInput, Dimensions} from "react-native";
 import Navbar from "./Navbar";
 import {useNavigation} from "@react-navigation/native";
 import {useState} from "react";
@@ -43,7 +43,6 @@ function CodeOverlay() {
                         styles.codeText}>432</Text>
                 </TouchableOpacity>
             </View>
-            {/*<Navbar title="Crear Pista Imagen"/>*/}
             {getInputCode ? (
                 <View style={styles.overlayTitle}>
                     <Text style={{fontWeight: "bold", fontSize: 35, color: "white"}}>Código de la pista</Text>
@@ -71,7 +70,7 @@ function CodeOverlay() {
                             </Text>
                         )}
                         {!getInputCode ? (
-                            <TouchableOpacity onPress={codeEdit}>
+                           <TouchableOpacity onPress={() => setInputCode(true)}> 
                                 <Image source={require("../images/Edit_Icon.png")} style={styles.image}></Image>
                             </TouchableOpacity>
                         ) : null}
@@ -80,16 +79,18 @@ function CodeOverlay() {
             <View style={getInputCode ? styles.overlay : {display: "none"}}></View>
             {getInputCode ? (
                 <TouchableOpacity style={styles.acceptButton} onPress={codeEdit}>
-                    <Text style={{color: "white", fontSize: 30}}>ACEPTAR</Text>
+                    <Text style={{color: "white", fontSize: 25, fontWeight: 'bold'}}>ACEPTAR</Text>
                 </TouchableOpacity>
             ) : null}
         </View>
     )
 }
 
+
+
 const styles = StyleSheet.create({
     container: {
-       // flex: 1,
+        flex: 1,
         //justifyContent: 'flex-end',
         alignItems: 'center',
         height: '30%',
@@ -108,13 +109,12 @@ const styles = StyleSheet.create({
     },
     panelAbsolute: {
         backgroundColor: "#003B2C",
-        width: '75%',
         alignSelf: 'center',
-        height: 125,
-        borderRadius: 25,
+        borderRadius: 20,
+        padding: 5,
         alignItems: 'center',
-      //  position: "absolute",
-        top: 200,
+        zIndex: 99999,
+        top: -350,
     },
     text1: {
         color: "#ffffff",
@@ -149,30 +149,31 @@ const styles = StyleSheet.create({
     },
     overlay: {
         flex: 1,
-       // position: 'absolute',
+        position: 'absolute',
         left: 0,
-        top: 0,
+        top: -500,
         opacity: 0.7,
         backgroundColor: 'black',
-        width: "100%",
-        height: "100%",
-        zIndex: -1,
+        width: "400%",
+        height: "600%",
+        zIndex: 2, // Un zIndex menor que los elementos que deben ir encima
     },
     overlayTitle: {
         justifyContent: 'center',
         alignItems: 'center',
-        top: 100,
+        top: -300,
         position: "absolute",
+        zIndex: 9999,
     },
     acceptButton: {
         backgroundColor: "#ffb708",
-        width: '65%',
         justifyContent: 'center',
         alignItems: 'center',
-      //  position: "absolute",
-        height: 55,
-        top: 350,
         borderRadius: 25,
+        padding: 8,
+        paddingHorizontal: 40,
+        zIndex: 99999,
+        top: -300,
     },
     buttonGroup: {
         flexDirection: 'row',
