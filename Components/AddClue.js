@@ -56,7 +56,11 @@ const AddClue = () => {
 
   return (
     <View style={styles.container}>
-      <Button text={"ADD CLUE"} onPress={() => setModalVisible(true)} />
+      <Button
+        text={"ADD CLUE"}
+        onPress={() => setModalVisible(true)}
+        img={require("../images/Btn_CrearPartida.png")}
+      />
       <AddClueComponent
         isVisible={modalVisible}
         onClose={() => setModalVisible(false)}
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     overflow: "hidden",
     backgroundColor: "white",
-   // zIndex: 99999,
+    // zIndex: 99999,
     bottom: 0,
     left: 0,
     right: 0,
