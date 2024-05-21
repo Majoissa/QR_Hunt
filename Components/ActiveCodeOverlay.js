@@ -1,30 +1,31 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 
-const ActiveCodeOverlay = ({ code, onCodeChange, onAccept, onTogglePanel }) => {
-    return (
-        <View style={styles.container}>
-            <View style={styles.overlayTitle}>
-                <Text style={{ fontWeight: "bold", fontSize: 35, color: "white" }}>Código de la pista</Text>
-                <Text style={{ color: "#60986e", fontWeight: "bold", fontSize: 15 }}>Introduce un código de juego</Text>
-            </View>
-            <View style={styles.panelAbsolute}>
-                <TextInput
-                    style={styles.text3}
-                    value={code}
-                    onChangeText={onCodeChange}
-                    numberOfLines={1}
-                    ellipsizeMode="tail"
-                    maxLength={6}
-                    autoCapitalize="characters"
-                />
-            </View>
-            <TouchableOpacity style={styles.acceptButton} onPress={onAccept}>
-                <Text style={{ color: "white", fontSize: 25, fontWeight: 'bold' }}>ACEPTAR</Text>
-            </TouchableOpacity>
-        </View>
-    );
+const ActiveCodeOverlay = ({ code, onCodeChange, onAccept }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.overlayTitle}>
+        <Text style={{ fontWeight: "bold", fontSize: 35, color: "white" }}>Código de la pista</Text>
+        <Text style={{ color: "#60986e", fontWeight: "bold", fontSize: 15 }}>Introduce un código de juego</Text>
+      </View>
+      <View style={styles.panelAbsolute}>
+        <TextInput
+          style={styles.text3}
+          value={code}
+          onChangeText={onCodeChange}
+          numberOfLines={1}
+          ellipsizeMode="tail"
+          maxLength={6}
+          autoCapitalize="characters"
+        />
+      </View>
+      <TouchableOpacity style={styles.acceptButton} onPress={onAccept}>
+        <Text style={{ color: "white", fontSize: 25, fontWeight: 'bold' }}>ACEPTAR</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
+
 
 const styles = StyleSheet.create({
     // Incluye aquí los estilos específicos para este componente
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: 'bold',
         paddingVertical: 10,
-        paddingHorizontal: 120,
+        paddingHorizontal: 90,
         width: "100%",
         
 
