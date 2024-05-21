@@ -107,10 +107,10 @@ const styles = StyleSheet.create({
     },
     text3: {
         color: "#ffffff",
-        fontSize: 40,
+        fontSize: 35,
         fontWeight: 'bold',
-        paddingHorizontal: 15,
-        width: "100%",
+        paddingHorizontal: 7,
+       // width: "100%",
         textAlign: "center",
     },
     group: {
@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
         height: 30,
         width: 30,
         margin: 15,
+       
     },
   
     overlayTitle: {
