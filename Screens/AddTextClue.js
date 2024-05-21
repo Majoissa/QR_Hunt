@@ -9,6 +9,7 @@ import TitleInput from '../Components/TitleInput';
 import decorateMapComponent from 'react-native-maps/lib/decorateMapComponent';
 import DescriptionInput from '../Components/DescriptionInput';
 import CodeOverlay from '../Components/CodeOverlay';
+import ActiveCodeOverlay from '../Components/ActiveCodeOverlay';
 import { useNavigation } from '@react-navigation/native';
 
 // Define el componente AddImageClue
@@ -42,7 +43,7 @@ const AddTextClue = () => {
     </View>   
     {isOverlayVisible && (
         <View style={styles.overlay}>
-          {/* Aquí podrías poner cualquier contenido adicional que necesites mostrar sobre el overlay */}
+          <ActiveCodeOverlay/>
         </View>
       )}
     <SaveClue imgSrc={SaveBtn} text="AÑADIR PISTA" onPress={navigateToCodeOverlay}/>

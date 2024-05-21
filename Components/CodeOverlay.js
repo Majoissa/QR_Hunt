@@ -50,15 +50,15 @@ function CodeOverlay({ onEditPress }) {
                         styles.codeText}>432</Text>
                 </TouchableOpacity>
             </View>
-            {getInputCode ? (
+            {/*getInputCode ? (
                 <View style={styles.overlayTitle}>
                     <Text style={{fontWeight: "bold", fontSize: 35, color: "white"}}>Código de la pista</Text>
                     <Text style={{color: "#60986e", fontWeight: "bold", fontSize: 15}}>Introduce un código de
                         juego</Text>
                 </View>
-            ) : null}
+            ) : null*/}
             {selectedButton === "code" ? (
-                <View style={getInputCode ? styles.panelAbsolute : styles.panel}>
+                <View style={styles.panel}>
                     <Text style={styles.text1}>Tu código:</Text>
                     <View style={styles.group}>
                         {getInputCode ? (
@@ -83,11 +83,11 @@ function CodeOverlay({ onEditPress }) {
                         ) : null}
                     </View>
                 </View>) : null}
-            {getInputCode ? (
+            {/*getInputCode ? (
                 <TouchableOpacity style={styles.acceptButton} onPress={codeEdit}>
                     <Text style={{color: "white", fontSize: 25, fontWeight: 'bold'}}>ACEPTAR</Text>
                 </TouchableOpacity>
-            ) : null}
+            ) : null*/}
         </View>
     )
 }
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         top: 20,
       //  bottom: 200,
     },
-    panelAbsolute: {
+   /* panelAbsolute: {
         backgroundColor: "#003B2C",
         alignSelf: 'center',
         borderRadius: 20,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         zIndex: 99999,
         top: -350,
-    },
+    },*/
     text1: {
         color: "#ffffff",
         fontSize: 18,

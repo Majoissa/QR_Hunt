@@ -9,7 +9,6 @@ const ActiveCodeOverlay = ({ code, onCodeChange, onAccept, onTogglePanel }) => {
                 <Text style={{ color: "#60986e", fontWeight: "bold", fontSize: 15 }}>Introduce un código de juego</Text>
             </View>
             <View style={styles.panelAbsolute}>
-                <Text style={styles.text1}>Tu código:</Text>
                 <TextInput
                     style={styles.text3}
                     value={code}
@@ -30,12 +29,14 @@ const ActiveCodeOverlay = ({ code, onCodeChange, onAccept, onTogglePanel }) => {
 const styles = StyleSheet.create({
     // Incluye aquí los estilos específicos para este componente
     container: {
+        flex: 1,
+        justifyContent: 'center',
         // Estilos necesarios
     },
     overlayTitle: {
         justifyContent: 'center',
         alignItems: 'center',
-        position: "absolute",
+      //  position: "absolute",
         zIndex: 9999,
     },
     panelAbsolute: {
@@ -44,18 +45,20 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 5,
         alignItems: 'center',
-        zIndex: 99999,
+        zIndex: 9999,
+        marginTop: 30,
     },
-    text1: {
-        color: "#ffffff",
-        fontSize: 18,
-    },
+   
     text3: {
+       // backgroundColor: 'red',
         color: "#ffffff",
         fontSize: 40,
         fontWeight: 'bold',
-        paddingHorizontal: 15,
+        paddingVertical: 10,
+        paddingHorizontal: 120,
         width: "100%",
+        
+
         textAlign: "center",
     },
     acceptButton: {
@@ -64,8 +67,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 25,
         padding: 8,
+        margin: 80,
         paddingHorizontal: 40,
-        zIndex: 99999,
+        zIndex: 999,
+        marginBottom: 100
     },
 });
 

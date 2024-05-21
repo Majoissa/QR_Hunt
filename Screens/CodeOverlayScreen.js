@@ -1,7 +1,7 @@
 // Importa los componentes necesarios de React y React Native
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import CodeOverlay from '../Components/CodeOverlay'; // Asegúrate de que la ruta de importación sea correcta
+import CodeOverlay from '../Components/ActiveCodeOverlay'; // Asegúrate de que la ruta de importación sea correcta
 
 // Define el componente CodeOverlayScreen
 const CodeOverlayScreen = () => {
