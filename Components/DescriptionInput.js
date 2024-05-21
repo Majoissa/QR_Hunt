@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         padding: 10,
         paddingBottom: 30,
-        marginBottom: 30,
+        marginBottom: 10,
         textAlignVertical: 'top', // Alinea el texto en la parte superior para campos de texto multilínea
         minHeight: 100, // Altura mínima para dar espacio suficiente para escribir
     },

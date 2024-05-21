@@ -1,6 +1,6 @@
 // Importa los componentes necesarios de React y React Native
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import Navbar from '../Components/Navbar';
 import SaveClue from '../Components/SaveClueButton';
 import SaveBtn from '../images/Btn_CrearPartida.png';
@@ -8,6 +8,7 @@ import CoverImgSelector from '../Components/CoverImgSelector';
 import TitleInput from '../Components/TitleInput';
 import decorateMapComponent from 'react-native-maps/lib/decorateMapComponent';
 import DescriptionInput from '../Components/DescriptionInput';
+import CodeOverlay from '../Components/CodeOverlay';
 
 // Define el componente AddImageClue
 const AddImageClue = () => {
@@ -17,10 +18,16 @@ const AddImageClue = () => {
     style={styles.backgroundImage}
     >
     <Navbar title="Crear Pista Imagen"/>
-    <View style={{padding: 20, marginBottom: 90}}>
-        <CoverImgSelector/>
+    <View style={{padding: 20, paddingBottom: 30, height: '80%'}}>
+      <ScrollView>
+      <CoverImgSelector/>
         <TitleInput/>
         <DescriptionInput/>
+        <View style={{paddingBottom: 20}}>
+          <CodeOverlay/>
+        </View>
+      </ScrollView>
+       
     </View>   
     <SaveClue imgSrc={SaveBtn} text="GUARDAR"/>
     </ImageBackground>

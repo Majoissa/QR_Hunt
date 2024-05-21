@@ -11,6 +11,7 @@ import AddAudioClue from "./Screens/AddAudioClue";
 import AddTextClue from "./Screens/AddTextClue";
 import AddGeolocalization from "./Screens/AddGeolocalization";
 import GameDescriptionScreen from "./Screens/GameDescriptionScreen";
+import CodeOverlayScreen from "./Screens/CodeOverlayScreen";
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name="AddImageClue" component={AddImageClue} />
         <Stack.Screen name="AddAudioClue" component={AddAudioClue} />
         <Stack.Screen name="AddTextClue" component={AddTextClue} />
+        <Stack.Screen name="CodeOverlayScreen" component={CodeOverlayScreen} />
         <Stack.Screen
           name="AddGeolocalization"
           component={AddGeolocalization}

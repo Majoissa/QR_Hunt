@@ -22,11 +22,11 @@ NewGameScreen = ({ navigation }) => {
             <Navbar title="Crear Partida" />
             {/* Contenido adicional aquí si es necesario */}
             <ScrollView style={{width: '100%', paddingTop: 80, paddingBottom: 80}}>
-                <View style={{padding: 20, paddingBottom: 80}}>
+                <View style={{padding: 20, paddingBottom: 100}}>
                     <CoverImgSelector/>
                     <TitleInput/>
                     <DescriptionInput/>
-                    <View style={{ bottom: 20}}>
+                    <View style={{ top: 5, bottom: 20}}>
                         <Text style={styles.label}>Pistas</Text>
                         <View style={styles.row}>
                             <View style={{backgroundColor: '#d78e37', padding: 8, borderTopLeftRadius: 5, borderBottomLeftRadius: 5}}>
