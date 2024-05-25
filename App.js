@@ -10,7 +10,6 @@ import AddAudioClue from "./Screens/AddAudioClue";
 import AddTextClue from "./Screens/AddTextClue";
 import AddGeolocalization from "./Screens/AddGeolocalization";
 import GameDescriptionScreen from "./Screens/GameDescriptionScreen";
-import CodeOverlayScreen from "./Screens/CodeOverlayScreen";
 import ClueImageScreenComponent from "./Screens/ClueImageScreen"; 
 import ClueLocationScreenComponent from "./Screens/ClueLocationScreen";
 import ClueSoundScreenComponent from "./Screens/ClueSoundScreen";
@@ -39,7 +38,6 @@ export default function App() {
         <Stack.Screen name="AddImageClue" component={AddImageClue} />
         <Stack.Screen name="AddAudioClue" component={AddAudioClue} />
         <Stack.Screen name="AddTextClue" component={AddTextClue} />
-        <Stack.Screen name="CodeOverlayScreen" component={CodeOverlayScreen} />
         <Stack.Screen name="AddGeolocalization" component={AddGeolocalization} />
         <Stack.Screen name="ClueImageScreen1" component={ClueImageScreen1} />
         <Stack.Screen name="ClueLocationScreen2" component={ClueLocationScreen2} />

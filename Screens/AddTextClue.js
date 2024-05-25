@@ -12,9 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const AddTextClue = () => {
   const navigation = useNavigation();
-  const navigateToCodeOverlay = () => {
-    navigation.navigate('CodeOverlayScreen');  // Usa el nombre que asignaste en el Stack Navigator
-  };
+
 
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [code, setCode] = useState("ABC123...");

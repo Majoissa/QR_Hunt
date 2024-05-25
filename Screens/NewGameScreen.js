@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, ImageBackground, Image } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ImageBackground, Image, TouchableOpacity } from 'react-native';
 import CoverImgSelector from '../Components/CoverImgSelector';
 import TitleInput from '../Components/TitleInput';
+import { Ionicons } from 'react-native-vector-icons';
 import DescriptionInput from '../Components/DescriptionInput';
 import { ScrollView } from 'react-native-gesture-handler';
 import Navbar from '../Components/Navbar';
@@ -10,8 +11,13 @@ import MicIcon from '../images/Mic_Icon.png';
 import ImageIcon from '../images/Image_Icon.png';
 import AddClue from '../Components/AddClue';
 import { Zocial } from '@expo/vector-icons';
+import SaveIcon from '../images/save.png';
 
 NewGameScreen = ({ navigation }) => {
+    const handleSavePress = () => {
+        // Acción que deseas realizar al presionar el icono
+        console.log("Save icon pressed");
+    };
     return(
         <ImageBackground
             source={require('../images/Home_Background_Animation00.png')}
@@ -20,6 +26,9 @@ NewGameScreen = ({ navigation }) => {
             {/* Capa oscurecedora */}
             <View style={styles.overlay} />            
             <Navbar title="Crear Partida" />
+            <TouchableOpacity style={styles.overlayTouchable} onPress={handleSavePress}>
+            <Ionicons name="save" size={30} color="orange" /> 
+            </TouchableOpacity>
             {/* Contenido adicional aquí si es necesario */}
             <ScrollView style={{width: '100%', paddingTop: 80, paddingBottom: 80}}>
                 <View style={{padding: 20, paddingBottom: 100}}>
@@ -97,6 +106,16 @@ label: {
     color: 'white',
     fontWeight: 'bold',
     marginBottom: 5, // Espacio entre la etiqueta y el campo de texto
+},
+overlayTouchable: {
+    position: 'absolute',
+    top: 40, // Ajusta según sea necesario
+    right: 25, // Ajusta según sea necesario
+    zIndex: 999999, // Asegura que esté encima de la Navbar
+},
+overlayImage: {
+    width: 25, // Ajusta según sea necesario
+    height: 30, // Ajusta según sea necesario
 },
 inputTitle: {
     backgroundColor: 'grey', // Fondo blanco para mayor visibilidad
