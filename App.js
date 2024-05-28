@@ -18,10 +18,10 @@ import NewGameScreen from "./Screens/NewGameScreen";
 
 const Stack = createStackNavigator();
 
-const ClueImageScreen1 = () => <ClueImageScreenComponent currentStep={1} />;
-const ClueLocationScreen2 = () => <ClueLocationScreenComponent currentStep={2} />;
-const ClueSoundScreen3 = () => <ClueSoundScreenComponent currentStep={3} />;
-const ClueTextScreen4 = () => <ClueTextScreenComponent currentStep={4} />;
+const ClueImageScreen1 = ({ navigation }) => <ClueImageScreenComponent currentStep={1} navigation={navigation} />;
+const ClueLocationScreen2 = ({ navigation }) => <ClueLocationScreenComponent currentStep={2} navigation={navigation} />;
+const ClueSoundScreen3 = ({ navigation }) => <ClueSoundScreenComponent currentStep={3} navigation={navigation} />;
+const ClueTextScreen4 = ({ navigation }) => <ClueTextScreenComponent currentStep={4} navigation={navigation} />;
 
 export default function App() {
   return (
