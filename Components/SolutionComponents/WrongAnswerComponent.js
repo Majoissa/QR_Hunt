@@ -1,28 +1,35 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-const CorrectAnswerComponent = ({onPressNext }) => {
+const CorrectAnswerComponent = ({ onPressNext }) => {
   return (
-    <View style={styles.container}>
-      <Text style={[styles.text, styles.correctAnswerText]}>
-        La respuesta es...
-      </Text>
-      <Text style={[styles.text, styles.correctText]}>INCORRECTA!</Text>
-      <TouchableOpacity style={styles.button} onPress={onPressNext}>
-        <Image
-          source={require('../../images/Button_Resolve_Text.png')}
-          style={styles.buttonBackground}
-          resizeMode="cover"
-        />
-        <Text style={styles.buttonText}>VOLVER A PROBAR</Text>
-      </TouchableOpacity>
+    <View style={styles.overlay}>
+      <View style={styles.container}>
+        <Text style={[styles.text, styles.correctAnswerText]}>
+          La respuesta es...
+        </Text>
+        <Text style={[styles.text, styles.correctText]}>INCORRECTA!</Text>
+        <TouchableOpacity style={styles.button} onPress={onPressNext}>
+          <Image
+            source={require('../../images/Button_Resolve_Text.png')}
+            style={styles.buttonBackground}
+            resizeMode="cover"
+          />
+          <Text style={styles.buttonText}>VOLVER A INTENTAR</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  overlay: {
     flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -35,8 +42,8 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   correctText: {
-    color: 'red',
-    fontWeight: 'bold'
+    color: 'green',
+    fontWeight: 'bold',
   },
   button: {
     justifyContent: 'center',

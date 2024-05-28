@@ -1,8 +1,7 @@
 import React from "react";
-import NewGameScreen from "./Screens/NewGameScreen";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./Screens/HomeScreen";
 import SelectorGameScreen from "./Screens/SelectorGameScreen";
 import CodeOverlay from "./Components/CodeOverlay";
@@ -11,8 +10,18 @@ import AddAudioClue from "./Screens/AddAudioClue";
 import AddTextClue from "./Screens/AddTextClue";
 import AddGeolocalization from "./Screens/AddGeolocalization";
 import GameDescriptionScreen from "./Screens/GameDescriptionScreen";
+import ClueImageScreenComponent from "./Screens/ClueImageScreen"; 
+import ClueLocationScreenComponent from "./Screens/ClueLocationScreen";
+import ClueSoundScreenComponent from "./Screens/ClueSoundScreen";
+import ClueTextScreenComponent from "./Screens/ClueTextScreen";
+import NewGameScreen from "./Screens/NewGameScreen";
 
 const Stack = createStackNavigator();
+
+const ClueImageScreen1 = ({ navigation }) => <ClueImageScreenComponent currentStep={1} navigation={navigation} />;
+const ClueLocationScreen2 = ({ navigation }) => <ClueLocationScreenComponent currentStep={2} navigation={navigation} />;
+const ClueSoundScreen3 = ({ navigation }) => <ClueSoundScreenComponent currentStep={3} navigation={navigation} />;
+const ClueTextScreen4 = ({ navigation }) => <ClueTextScreenComponent currentStep={4} navigation={navigation} />;
 
 export default function App() {
   return (
@@ -29,10 +38,11 @@ export default function App() {
         <Stack.Screen name="AddImageClue" component={AddImageClue} />
         <Stack.Screen name="AddAudioClue" component={AddAudioClue} />
         <Stack.Screen name="AddTextClue" component={AddTextClue} />
-        <Stack.Screen
-          name="AddGeolocalization"
-          component={AddGeolocalization}
-        />
+        <Stack.Screen name="AddGeolocalization" component={AddGeolocalization} />
+        <Stack.Screen name="ClueImageScreen1" component={ClueImageScreen1} />
+        <Stack.Screen name="ClueLocationScreen2" component={ClueLocationScreen2} />
+        <Stack.Screen name="ClueSoundScreen3" component={ClueSoundScreen3} />
+        <Stack.Screen name="ClueTextScreen4" component={ClueTextScreen4} />
       </Stack.Navigator>
     </NavigationContainer>
   );
